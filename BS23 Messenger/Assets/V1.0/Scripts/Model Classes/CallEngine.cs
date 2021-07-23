@@ -134,7 +134,6 @@ public class CallEngine
             return; // reuse
         }
         if (!videoCall) return;
-        if (uid != 2) return;
         Debug.Log("-----------------------------------------Starting Video---------------------------------------");
         VideoSurface vSurface = videoView.GetComponent<VideoSurface>();
         vSurface.SetForUser(uid);

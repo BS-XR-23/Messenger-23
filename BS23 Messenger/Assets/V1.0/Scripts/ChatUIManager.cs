@@ -111,7 +111,7 @@ public class ChatUIManager : MonoBehaviour
 
     public void OnVideoCallAccept()
     {
-        videoCallButtonEvent.Invoke();
+        acceptVideoCallButtonEvent.Invoke();
         ShowIncomingCallUI(false);
     }
 

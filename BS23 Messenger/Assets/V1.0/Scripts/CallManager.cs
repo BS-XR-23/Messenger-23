@@ -2,6 +2,7 @@ using agora_rtm;
 using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
+using agora_gaming_rtc;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
