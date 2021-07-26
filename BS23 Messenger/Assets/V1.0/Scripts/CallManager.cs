@@ -1,65 +1,63 @@
 using agora_rtm;
 using Newtonsoft.Json;
 using System.Collections;
-using System.Collections.Generic;
-using agora_gaming_rtc;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class CallManager : MonoBehaviour
 {
-    static CallEngine app = null;
-    public bool isInCall = false;
-    public RawImage videoImage;
+    private static CallEngine _app;
+
+    [SerializeField]private RawImage VideoImage;
 
 
-    private string currentChannelName;
 
 
-    private void Start()
-    {
-        currentChannelName = "";
-    }
+
+
+
 
     public void LeaveCallChannel()
     {
-        app.leave();
-        isInCall = false;
-        currentChannelName = "";
+        _app.Leave();
+        MessengerManager.instance.IsInCall = false;
     }
 
    
 
-    public void StartCall(bool isVideo, string receiverID,string channelName,string rtcToken,uint uID)
+    public void StartCall(bool isVideo, string receiverId,string channelName,string rtcToken,uint uId)
     {
         
         //UI
-        if (app == null)
+        if (_app == null)
         {
-            app = new CallEngine();
-            app.loadEngine();
+            _app = new CallEngine();
+            _app.LoadEngine();
         }
+
         if(!isVideo)
-            app.join(channelName, rtcToken, isVideo,uID);
+            _app.Join(channelName, rtcToken,uId);
         else
-            app.join(channelName, rtcToken, isVideo,uID,videoImage);
-        ChatUIManager.instance.StartCallUI(receiverID, isVideo);
-        isInCall = true;
-        InvitePeer(receiverID, channelName);
+            _app.Join(channelName, rtcToken,uId,VideoImage);
+
+
+        ChatUIManager.instance.StartCallUI(receiverId, isVideo);
+        MessengerManager.instance.IsInCall = true;
+        InvitePeer(receiverId, channelName);
 
 
     }
 
-    IEnumerator ReceiveCallAfterToken(bool isVideo, string receiverID, string channelName)
+    IEnumerator ReceiveCallAfterToken(bool isVideo, string receiverId, string channelName)
     {
         yield return null;
-        UnityWebRequest request = UnityWebRequest.Get("https://agora-token-demo.herokuapp.com/rtc-uid-token/?uid=2" + "&channelName=" + channelName + "&username=" +   MessengerManager.instance.loggedInUserID);
+        UnityWebRequest request = UnityWebRequest.Get($"{MessengerManager.instance.RTCBaseUrl}?uid={2}&channelName={channelName}&username={MessengerManager.instance.loggedInUserID}");
         request.SetRequestHeader("Content-Type", "application/json");
 
         yield return request.SendWebRequest();
 
-        if (request.isNetworkError || request.isHttpError)
+        if (request.result != UnityWebRequest.Result.Success)
         {
             Debug.Log(request.error);
         }
@@ -67,34 +65,35 @@ public class CallManager : MonoBehaviour
         {
             string jsonResponse = request.downloadHandler.text;
             RTCToken receivedToken = JsonConvert.DeserializeObject<RTCToken>(jsonResponse);
-            StartCall(isVideo, receiverID, channelName, receivedToken.token,2);
+            //todo uid is fixed
+            StartCall(isVideo, receiverId, channelName, receivedToken.token,2);
 
 
         }
     }
 
-    public void ReceiveCall(bool isVideo, string receiverID, string channelName)
+    public void ReceiveCall(bool isVideo, string receiverId, string channelName)
     {
-        StartCoroutine(ReceiveCallAfterToken(isVideo, receiverID, channelName));
+        StartCoroutine(ReceiveCallAfterToken(isVideo, receiverId, channelName));
     }
 
-    public void InvitePeer(string receipientID, string channelName)
+    private void InvitePeer(string receipientId, string channelName)
     {
-        string peerUid = receipientID;
+        string peerUid = receipientId;
         if (string.IsNullOrEmpty(peerUid))
         {
             return;
         }
         // Creates LocalInvitation
-        LocalInvitation invitation = MessengerManager.instance.chatSystem.callManager.CreateLocalCallInvitation(peerUid);
+        LocalInvitation invitation = MessengerManager.instance.chatSystem.CallManager.CreateLocalCallInvitation(peerUid);
         invitation.SetChannelId(channelName);
         // Sends call invitation
-        int rc = MessengerManager.instance.chatSystem.callManager.SendLocalInvitation(invitation);
+        int rc = MessengerManager.instance.chatSystem.CallManager.SendLocalInvitation(invitation);
         Debug.Log("Send invitation to " + peerUid + " rc = " + rc);
     }
 
     private void OnApplicationQuit()
     {
-        app.unloadEngine();
+        _app.UnloadEngine();
     }
 }

@@ -10,10 +10,16 @@ public class MessengerManager : MonoBehaviour
     public string loggedInUserID;
     public string RtcToken;
 
+
+    public readonly string RtmTokenBaseUrl = "https://agora-token-demo.herokuapp.com/token/";
+    public readonly string RTCBaseUrl = "https://agora-token-demo.herokuapp.com/rtc-uid-token/";
+
+
+
     [SerializeField]
     private string AppID;
 
-
+    public bool IsInCall;
     private void Awake()
     {
         instance = this;

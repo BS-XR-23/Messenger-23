@@ -74,6 +74,7 @@ namespace agora_gaming_rtc
         BECOME_AUDIENCE = 2,
     };
     /** Output log filter level. */
+    [Flags]
     public enum LOG_FILTER
     {
         /** 0: Do not output any log information. */

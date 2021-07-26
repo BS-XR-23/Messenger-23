@@ -53,14 +53,14 @@ public class ConversationController : MonoBehaviour
         thisToggle = GetComponent<Toggle>();
         
         
-        clientEventHandler = MessengerManager.instance.chatSystem.clientEventHandler;
+        clientEventHandler = MessengerManager.instance.chatSystem.ClientEventHandler;
         clientEventHandler.OnQueryPeersOnlineStatusResult = OnQueryPeersOnlineStatusResultHandler;
 
 
 
 
-        rtmClient = MessengerManager.instance.chatSystem.rtmClient;
-        _MessageOptions = MessengerManager.instance.chatSystem._MessageOptions;
+        rtmClient = MessengerManager.instance.chatSystem.RtmClient;
+        _MessageOptions = MessengerManager.instance.chatSystem.MessageOptions;
         StartCoroutine(CheckOnlineStatus());
         Initialize();
     }
