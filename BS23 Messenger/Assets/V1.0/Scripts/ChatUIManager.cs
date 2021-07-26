@@ -145,11 +145,20 @@ public class ChatUIManager : MonoBehaviour
         callInterface.SetActive(true);
     }
 
-    public void ShowIncomingCallUI(bool b)
+    public void ShowIncomingCallUI(bool show)
     {
-        incomingCallBase.SetActive(b);
+        AudioSource ringtone = incomingCallBase.GetComponent<AudioSource>();
+        incomingCallBase.SetActive(show);
+        ringtone.Stop();
+
+        if (show) ringtone.Play();
+        
         
     }
+        
+
+        
+    
 
 
     public void SetupIncomingCall(RemoteInvitation remoteInvitation)
