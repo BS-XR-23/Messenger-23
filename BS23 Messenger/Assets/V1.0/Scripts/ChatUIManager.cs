@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Events;
 using agora_rtm;
+using Newtonsoft.Json;
 
 public class ChatUIManager : MonoBehaviour
 {
@@ -48,6 +50,10 @@ public class ChatUIManager : MonoBehaviour
     public UnityEvent acceptCallButtonEvent;
     public UnityEvent refuseCallButtonEvent;
     public UnityEvent acceptVideoCallButtonEvent;
+
+    //Login
+    public GameObject loginPanel;
+    public bool useInternalLogin = false;
     // Start is called before the first frame update
 
     private void Awake()
@@ -58,7 +64,14 @@ public class ChatUIManager : MonoBehaviour
 
     void Start()
     {
-        
+        loginPanel.SetActive(useInternalLogin);
+    }
+
+    public void OnLoginButtonClicked()
+    {
+        string username =  loginPanel.GetComponentInChildren<TMP_InputField>().text;
+        MessengerManager.instance.LoginToMessenger(username);
+        loginPanel.SetActive(false);
     }
 
     public void SetUserName(string name)
@@ -143,6 +156,25 @@ public class ChatUIManager : MonoBehaviour
         videoCallSurface.gameObject.SetActive(isVideoCall);
         audioCallSurface.SetActive(!isVideoCall);
         callInterface.SetActive(true);
+    }
+
+    public void LoadSavedConversation()
+    {
+        string path = Application.persistentDataPath + "/messengerData/" + MessengerManager.instance.loggedInUserID+ "/";
+        if (!Directory.Exists(path)) return;
+        DirectoryInfo dInfo = new DirectoryInfo(path);
+
+        FileInfo[] allConvoFiles = dInfo.GetFiles("*.json");
+        foreach (var file in allConvoFiles)
+        {
+            GameObject g = GameObject.Instantiate(chatBubblePrefab, chatListContentPanel);
+            string recepientID = Path.GetFileNameWithoutExtension(file.FullName);
+            g.GetComponent<ConversationController>().recepientID = recepientID;
+            string jsonData = File.ReadAllText(file.FullName);
+            List<ChatMessage> oldMessages = JsonConvert.DeserializeObject<List<ChatMessage>>(jsonData);
+            g.GetComponent<ConversationController>().chats = oldMessages;
+
+        }
     }
 
     public void ShowIncomingCallUI(bool show)

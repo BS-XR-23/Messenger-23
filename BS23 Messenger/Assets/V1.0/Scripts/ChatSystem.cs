@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 public class ChatSystem : MonoBehaviour
 {
     public TMP_InputField usernameText;
-    public GameObject LoginPanel;
+    
 
 
 
@@ -81,15 +81,12 @@ public class ChatSystem : MonoBehaviour
         }
     }
 
-    public void OnSignInButtonClicked()
-    {
-        StartCoroutine(GetTokenFromServer());
-    }
+    
 
 
-    private void Login()
+    private void Login(string username)
     {
-        string username = usernameText.text;
+        
 
         if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(appId))
         {
@@ -99,7 +96,7 @@ public class ChatSystem : MonoBehaviour
 
         rtmClient.Login(token, username);
         MessengerManager.instance.loggedInUserID = username;
-        LoginPanel.SetActive(false);
+        ChatUIManager.instance.LoadSavedConversation();
     }
 
 
@@ -138,7 +135,7 @@ public class ChatSystem : MonoBehaviour
     }
 
 
-    IEnumerator GetTokenFromServer()
+    public IEnumerator GetTokenFromServer(string username)
     {
         yield return null;
         UnityWebRequest request = UnityWebRequest.Get("https://agora-token-demo.herokuapp.com/token/?username=" + usernameText.text + "&channelName=" + usernameText.text);
@@ -156,7 +153,7 @@ public class ChatSystem : MonoBehaviour
             Token receivedToken = JsonConvert.DeserializeObject<Token>(jsonResponse);
             token = receivedToken.rtmToken;
             MessengerManager.instance.RtcToken = receivedToken.rtcToken;
-            Login();
+            Login(username);
             StartCoroutine(GetRTCTokenFromServer());
 
         }

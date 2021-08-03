@@ -9,6 +9,7 @@ public class MessengerManager : MonoBehaviour
     public CallManager callManager;
     public string loggedInUserID;
     public string RtcToken;
+    public GameObject messengerRoot;
 
     [SerializeField]
     private string AppID;
@@ -21,6 +22,10 @@ public class MessengerManager : MonoBehaviour
         callManager = GetComponent<CallManager>();
     }
 
+    void Start()
+    {
+        
+    }
 
     public string GetAppID()
     {
@@ -28,9 +33,14 @@ public class MessengerManager : MonoBehaviour
     }
 
 
-    public void GenerateUI(List<ChatMessage> chats)
+    public void ShowMessenger(bool show)
     {
-        //UI Generation
+        messengerRoot.SetActive(show);
+    }
+
+    public void LoginToMessenger(string username)
+    {
+        StartCoroutine(chatSystem.GetTokenFromServer(username));
     }
 
     

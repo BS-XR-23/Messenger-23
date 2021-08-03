@@ -1,11 +1,13 @@
 using agora_rtm;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using agora_gaming_rtc;
+using Newtonsoft.Json;
 
 public class ConversationController : MonoBehaviour
 {
@@ -140,12 +142,13 @@ public class ConversationController : MonoBehaviour
 
         Initialize();
         DoAfterConvoUpdate();
-
+        
 
     }
 
     public void DoAfterConvoUpdate()
     {
+        SaveConversation();
         if (!thisToggle.isOn)
             return;
         LoadMessages();
@@ -180,6 +183,19 @@ public class ConversationController : MonoBehaviour
         chats.Add(recMessage);
         Initialize();
         DoAfterConvoUpdate();
+    }
+
+
+    public void SaveConversation()
+    {
+        string jsonConvo = JsonConvert.SerializeObject(chats);
+        string fileName = recepientID + ".json";
+        string path = Application.persistentDataPath + "/messengerData/" + MessengerManager.instance.loggedInUserID + "/";
+        if (!Directory.Exists(path))
+            Directory.CreateDirectory(path);
+
+        File.WriteAllText(path + fileName,jsonConvo);
+
     }
 
 
