@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Events;
 using agora_rtm;
+using Newtonsoft.Json;
 
 public class ChatUIManager : MonoBehaviour
 {
@@ -16,6 +18,7 @@ public class ChatUIManager : MonoBehaviour
     public GameObject receiverPrefab;
     public TMP_InputField chatTextInput;
     public GameObject chatBubblePrefab;
+    public GameObject chatBubblePrefab_Mobile;
     public GameObject addFriendsPanel;
     //For Add Friends
     public TMP_InputField friendsNameInputField;
@@ -32,23 +35,31 @@ public class ChatUIManager : MonoBehaviour
     //For Incoming Call UI
     public GameObject incomingCallBase;
     public TextMeshProUGUI callerName;
-    public Button receiveCall;
-    public Button receiveCallVideo;
-    public Button refuseCall;
+    
 
 
-    //Chat
+    //Chat Button Event
     public UnityEvent SendMessageButtonEvent;
-    //Outgoing
+
+    //Outgoing Call Button Events
     public UnityEvent audioCallButtonEvent;
     public UnityEvent videoCallButtonEvent;
     public UnityEvent leaveCallButtonEvent;
 
-    //Incoming
+    //Incoming Call Button Events
     public UnityEvent acceptCallButtonEvent;
-    public UnityEvent refuseCallButtonEvent;
     public UnityEvent acceptVideoCallButtonEvent;
-    // Start is called before the first frame update
+    public UnityEvent refuseCallButtonEvent;
+
+    //Login
+    public GameObject loginPanel;
+
+    //This will come handy if you want the user to log in from a different interface
+    public bool useInternalLogin = false;
+
+    //Mobile Specific UI
+    public GameObject homePage;
+    public GameObject messagePage;
 
     private void Awake()
     {
@@ -58,7 +69,14 @@ public class ChatUIManager : MonoBehaviour
 
     void Start()
     {
-        
+        loginPanel.SetActive(useInternalLogin);
+    }
+
+    public void OnLoginButtonClicked()
+    {
+        string username =  loginPanel.GetComponentInChildren<TMP_InputField>().text;
+        MessengerManager.instance.LoginToMessenger(username);
+        loginPanel.SetActive(false);
     }
 
     public void SetUserName(string name)
@@ -115,6 +133,8 @@ public class ChatUIManager : MonoBehaviour
         ShowIncomingCallUI(false);
     }
 
+
+    //This adds a message to the ui based on who is the sender and who is the receiver.
     public void AddMessage(ChatMessage message)
     {
         GameObject prefabToUse = (message.messageType == ChatMessage.MessageType.UserMessage) ? senderPrefab : receiverPrefab;
@@ -123,20 +143,28 @@ public class ChatUIManager : MonoBehaviour
         Canvas.ForceUpdateCanvases();
     }
 
+    // Just Creates A Brand new conversation based on given username.
     public void AddFriends()
     {
         CreateNewConversation(friendsNameInputField.text);
         addFriendsPanel.SetActive(false);
     }
 
+    //Creates A New Conversation. A chat message object can be added to create a new conversation from message received
     public void CreateNewConversation(string recepientID, ChatMessage msg = null)
     {
+#if UNITY_ANDROID || UNITY_IOS
+        GameObject g = GameObject.Instantiate(chatBubblePrefab_Mobile, chatListContentPanel);
+#elif UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX || UNITY_EDITOR_WIN
         GameObject g = GameObject.Instantiate(chatBubblePrefab, chatListContentPanel);
+#endif
         g.GetComponent<ConversationController>().recepientID = recepientID;
         if(msg != null)
-        g.GetComponent<ConversationController>().OnMessageReceived(msg);
+            g.GetComponent<ConversationController>().OnMessageReceived(msg);
     }
 
+
+    // Shows The Calling User Interface
     public void StartCallUI(string reciepientName, bool isVideoCall)
     {
         receiverName.text = "Calling " + reciepientName;
@@ -145,13 +173,49 @@ public class ChatUIManager : MonoBehaviour
         callInterface.SetActive(true);
     }
 
-    public void ShowIncomingCallUI(bool b)
+    
+    // Loads messages from local storage
+    public void LoadSavedConversation()
     {
-        incomingCallBase.SetActive(b);
-        
+        string path = Application.persistentDataPath + "/messengerData/" + MessengerManager.instance.loggedInUserID+ "/";
+        if (!Directory.Exists(path)) return;
+        DirectoryInfo dInfo = new DirectoryInfo(path);
+
+        FileInfo[] allConvoFiles = dInfo.GetFiles("*.json");
+        foreach (var file in allConvoFiles)
+        {
+#if UNITY_ANDROID || UNITY_IOS 
+            GameObject g = GameObject.Instantiate(chatBubblePrefab_Mobile, chatListContentPanel);
+#elif UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX || UNITY_EDITOR_WIN
+            GameObject g = GameObject.Instantiate(chatBubblePrefab, chatListContentPanel);
+#endif
+
+            string recepientID = Path.GetFileNameWithoutExtension(file.FullName);
+            g.GetComponent<ConversationController>().recepientID = recepientID;
+            string jsonData = File.ReadAllText(file.FullName);
+            List<ChatMessage> oldMessages = JsonConvert.DeserializeObject<List<ChatMessage>>(jsonData);
+            g.GetComponent<ConversationController>().chats = oldMessages;
+
+        }
     }
 
 
+    public void ShowIncomingCallUI(bool show)
+    {
+        AudioSource ringtone = incomingCallBase.GetComponent<AudioSource>();
+        incomingCallBase.SetActive(show);
+        ringtone.Stop();
+
+        if (show) ringtone.Play();
+        
+        
+    }
+        
+
+        
+    
+
+    // Assign actions to incoming call UI buttons and show the UI.
     public void SetupIncomingCall(RemoteInvitation remoteInvitation)
     {
         callerName.text = remoteInvitation.GetCallerId();
@@ -184,6 +248,20 @@ public class ChatUIManager : MonoBehaviour
     public void ClearAllMessage()
     {
         conversationContentPanel.DestoryAllChildImmediate();
+    }
+
+
+    //Mobile UI Code
+    public void ShowHomeScreen()
+    {
+        homePage.SetActive(true);
+        messagePage.SetActive(false);
+    }
+
+    public void showMessengerScreen()
+    {
+        homePage.SetActive(false);
+        messagePage.SetActive(true);
     }
 
 }

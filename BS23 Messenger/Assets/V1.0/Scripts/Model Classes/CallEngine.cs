@@ -8,6 +8,8 @@ public class CallEngine
 
     bool videoCall;
     RawImage videoView;
+
+    // Load the RTC Engine
     public void loadEngine()
     {
         // start sdk
@@ -26,6 +28,7 @@ public class CallEngine
         mRtcEngine.SetLogFilter(LOG_FILTER.DEBUG | LOG_FILTER.INFO | LOG_FILTER.WARNING | LOG_FILTER.ERROR | LOG_FILTER.CRITICAL);
     }
 
+    // Unload The RTC Engine
     public void unloadEngine()
     {
         Debug.Log("calling unloadEngine");
@@ -41,7 +44,12 @@ public class CallEngine
 
 
 
-
+    // Join a channel based on certain information.
+    // channel - name of the channel
+    // token - Generated Token from the server
+    // isVideoCall - Define if its a video call or just audio call
+    // uID - A Specific uID so you can track joined users
+    // videoSurface - provide a raw image component to show other person's video if it's a video call
     public void join(string channel, string token, bool isVideoCall, uint uID,RawImage videoSurface = null)
     {
         Debug.Log("calling join (channel = " + channel + ")");
@@ -85,6 +93,7 @@ public class CallEngine
         mRtcEngine.LeaveChannel();
         // deregister video frame observers in native-c code
         mRtcEngine.DisableVideoObserver();
+        mRtcEngine.DisableVideo();
 
     }
 
@@ -116,7 +125,6 @@ public class CallEngine
     private void onJoinChannelSuccess(string channelName, uint uid, int elapsed)
     {
         Debug.Log("JoinChannelSuccessHandler: uid = " + uid);
-        GameObject textVersionGameObject = GameObject.Find("VersionText");
 
     }
 
@@ -127,12 +135,7 @@ public class CallEngine
         Debug.Log("onUserJoined: uid = " + uid + " elapsed = " + elapsed);
         // this is called in main thread
 
-        // find a game object to render video stream from 'uid'
-        GameObject go = GameObject.Find(uid.ToString());
-        if (!ReferenceEquals(go, null))
-        {
-            return; // reuse
-        }
+        
         if (!videoCall) return;
         Debug.Log("-----------------------------------------Starting Video---------------------------------------");
         VideoSurface vSurface = videoView.GetComponent<VideoSurface>();
@@ -150,10 +153,7 @@ public class CallEngine
         // remove video stream
         Debug.Log("onUserOffline: uid = " + uid + " reason = " + reason);
         // this is called in main thread
-        GameObject go = GameObject.Find(uid.ToString());
-        if (!ReferenceEquals(go, null))
-        {
-            Object.Destroy(go);
-        }
+        ChatUIManager.instance.OnCallEndButtonClicked();
+
     }
 }

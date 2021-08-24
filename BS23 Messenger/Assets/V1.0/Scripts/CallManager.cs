@@ -30,7 +30,8 @@ public class CallManager : MonoBehaviour
     }
 
    
-
+    // Each Time you start a call. The call engine must be loaded. Ensure it is unloaded when you don't need it. The RTC token we generated with the username when we first log in
+    //comes handy here to create a channel.
     public void StartCall(bool isVideo, string receiverID,string channelName,string rtcToken,uint uID)
     {
         
@@ -51,10 +52,11 @@ public class CallManager : MonoBehaviour
 
     }
 
+    // To receive a call, Receiver must generate token from the server and use it to receive the call
     IEnumerator ReceiveCallAfterToken(bool isVideo, string receiverID, string channelName)
     {
         yield return null;
-        UnityWebRequest request = UnityWebRequest.Get("https://agora-token-demo.herokuapp.com/rtc-uid-token/?uid=2" + "&channelName=" + channelName + "&username=" +   MessengerManager.instance.loggedInUserID);
+        UnityWebRequest request = UnityWebRequest.Get(MessengerManager.instance.chatSystem.customServerURL + "/rtc-uid-token/?uid=2" + "&channelName=" + channelName + "&username=" +   MessengerManager.instance.loggedInUserID);
         request.SetRequestHeader("Content-Type", "application/json");
 
         yield return request.SendWebRequest();
@@ -78,6 +80,7 @@ public class CallManager : MonoBehaviour
         StartCoroutine(ReceiveCallAfterToken(isVideo, receiverID, channelName));
     }
 
+    //This sends a local invitation to the receiver
     public void InvitePeer(string receipientID, string channelName)
     {
         string peerUid = receipientID;
