@@ -11,7 +11,7 @@ With this sample app, you can:
 - Get Message recipient’s online status
 - Have fully fledge scenes both for mobile and desktop
 - Flexible UI Design for Easy Edits
-
+- Local Persistance for History Messaging
 
 
 
