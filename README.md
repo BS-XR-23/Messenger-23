@@ -1,7 +1,21 @@
-# **Agora Messenger for Unity**
+Agora Messenger for Unity
+=========================
 This is the Demo APP to show how to use Agora SDK for Unity 3D to create a cross-platform messenger by which you can send 1 to 1 text message, audio call and video call.
 
 The Agora Messenger for unity is an open-source demo that will help you get message chat and audio/video call integrated directly into your Unity3D applications using the Agora RTM SDK and Agora RTC SDK.
+
+## Features List
+
+
+| Description             | Done | Comment |
+|-------------------------|------|---------|
+| One to One Audio Call| ✔ | 
+| One to One Video Call| ✔ | 
+| One to One Realtime Texting| ✔ | 
+| Group Audio Call| ❌ | 
+| Group Video Call| ❌ | 
+| Group Texting| ❌ | 
+| Live Streaming | ❌ | 
 
 With this sample app, you can:
 
