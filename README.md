@@ -27,20 +27,28 @@ With this sample app, you can:
 - Flexible UI Design for Easy Edits
 - Local Persistance for History Messaging
 
+Supported Platforms
+===================
+
+| Description             | Done | Comment |
+|-------------------------|------|---------|
+| StandaloneWindows64| ✔ | Tested
+| StandaloneOSX| ✔ | Tested
+| StandaloneLinux| ❗ | Not Tested
+| Android| ✔ | Tested
+| iOS| ❗ | Not Tested
+| WebGL| ❌ | Agora.io doesn't support yet
 
 
-
-
-
-**Developer Environment Requirements**
+Developer Environment Requirements
+==================================
 
 - Unity3d 2020.3 or above
-- Real devices (Windows, Android, iOS, and Mac supported)
 - Some simulators are function missing or have performance issue, so real device is the best choice
 
 
 
 **3rd Party Assets Source**
 
-- Shapes2D - Procedural sprites and UI
-- All icons are downloaded from iconsdb.com
+- [Shapes2D](https://github.com/all-iver/shapes2d) - Procedural sprites and UI
+- All icons are downloaded from [iconsdb.com](https://www.iconsdb.com/)
