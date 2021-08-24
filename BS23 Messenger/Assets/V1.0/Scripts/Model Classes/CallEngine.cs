@@ -8,6 +8,8 @@ public class CallEngine
 
     bool videoCall;
     RawImage videoView;
+
+    // Load the RTC Engine
     public void loadEngine()
     {
         // start sdk
@@ -26,7 +28,7 @@ public class CallEngine
         mRtcEngine.SetLogFilter(LOG_FILTER.DEBUG | LOG_FILTER.INFO | LOG_FILTER.WARNING | LOG_FILTER.ERROR | LOG_FILTER.CRITICAL);
     }
 
-
+    // Unload The RTC Engine
     public void unloadEngine()
     {
         Debug.Log("calling unloadEngine");
@@ -42,7 +44,12 @@ public class CallEngine
 
 
 
-
+    // Join a channel based on certain information.
+    // channel - name of the channel
+    // token - Generated Token from the server
+    // isVideoCall - Define if its a video call or just audio call
+    // uID - A Specific uID so you can track joined users
+    // videoSurface - provide a raw image component to show other person's video if it's a video call
     public void join(string channel, string token, bool isVideoCall, uint uID,RawImage videoSurface = null)
     {
         Debug.Log("calling join (channel = " + channel + ")");

@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 
 public class ConversationController : MonoBehaviour
 {
+    public bool mobilePrefab;
     public TextMeshProUGUI profileName;
     public TextMeshProUGUI lastMessage;
     public GameObject onlineIcon;
@@ -31,24 +32,37 @@ public class ConversationController : MonoBehaviour
 
 
 
-    // load agora engine
 
 
 
     private void Awake()
     {
         chats = new List<ChatMessage>();
-        GetComponent<BaseToggleModifier>().OnClick.AddListener(() =>
+        if (!mobilePrefab)
         {
-            GenerateConversation();
+            GetComponent<BaseToggleModifier>().OnClick.AddListener(() =>
+            {
 
-        });
+                GenerateConversation();
+
+            });
+        }
+        else
+        {
+            GetComponent<Button>().onClick.AddListener(() =>
+            {
+                ChatUIManager.instance.showMessengerScreen();
+                GenerateConversation();
+
+            });
+        }
+
     }
 
-    
 
 
-   
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,7 +89,7 @@ public class ConversationController : MonoBehaviour
             lastMessage.text = chats.Last()?.text;
     }
 
-
+    // Generate Conversation with all the events assigned
     public void GenerateConversation()
     {
         ChatUIManager.instance.SetUserName(recepientID);
@@ -104,7 +118,7 @@ public class ConversationController : MonoBehaviour
     }
 
     
-
+    // Load Messages and Show In UI
     public void LoadMessages()
     {
         ChatUIManager.instance.ClearAllMessage();
@@ -116,7 +130,7 @@ public class ConversationController : MonoBehaviour
     }
 
 
-
+    // Send Message to The Receipient
     public void SendPeerMessage()
     {
         string msg = ChatUIManager.instance.chatTextInput.text;
@@ -149,11 +163,12 @@ public class ConversationController : MonoBehaviour
     public void DoAfterConvoUpdate()
     {
         SaveConversation();
-        if (!thisToggle.isOn)
+        if (thisToggle != null && !thisToggle.isOn)
             return;
         LoadMessages();
     }
 
+    // Check if the receipient is online
     IEnumerator CheckOnlineStatus()
     {
         QueryPeersOnlineStatus();
@@ -161,14 +176,14 @@ public class ConversationController : MonoBehaviour
         StartCoroutine(CheckOnlineStatus());
     }
 
-
+    
     public void QueryPeersOnlineStatus()
     {
         long req = 222222;
         rtmClient.QueryPeersOnlineStatus(new string[] { recepientID }, req);
     }
 
-
+    
     void OnQueryPeersOnlineStatusResultHandler(int id, long requestId, PeerOnlineStatus[] peersStatus, int peerCount, QUERY_PEERS_ONLINE_STATUS_ERR errorCode)
     {
         if (peersStatus.Length > 0)
@@ -177,7 +192,7 @@ public class ConversationController : MonoBehaviour
         }
     }
     
-
+    // Takes a message and adds it to the conversation
     public void OnMessageReceived(ChatMessage recMessage)
     {
         chats.Add(recMessage);
@@ -185,7 +200,7 @@ public class ConversationController : MonoBehaviour
         DoAfterConvoUpdate();
     }
 
-
+    // Save Total Conversation as a json file to Load message history
     public void SaveConversation()
     {
         string jsonConvo = JsonConvert.SerializeObject(chats);
