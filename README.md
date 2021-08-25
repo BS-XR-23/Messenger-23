@@ -41,7 +41,7 @@ Supported Platforms
 
 Screenshots
 ===========
-<img src="./Screenshots/Mobile/1.jpg" width="1024" height="576">
+<img src="./Screenshots/Mobile/1.jpg" width="1024" height="480">
 
 
 
