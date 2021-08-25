@@ -41,10 +41,8 @@ Supported Platforms
 
 Screenshots
 ===========
-<img src="./Screenshots/Mobile/1.jpg" width="288" height="512">
-<img src="./Screenshots/Mobile/2.jpg" width="288" height="512">
-<img src="./Screenshots/Mobile/3.jpg" width="288" height="512">
-<img src="./Screenshots/Mobile/4.jpg" width="288" height="512">
+<img src="./Screenshots/Mobile/1.jpg" width="1024" height="576">
+
 
 
 Developer Environment Requirements
