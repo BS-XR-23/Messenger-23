@@ -16,6 +16,7 @@ The Agora Messenger for unity is an open-source demo that will help you get mess
 | Group Video Call| ❌ | 
 | Group Texting| ❌ | 
 | Live Streaming | ❌ | 
+| Local cache | ❌ | 
 
 With this sample app, you can:
 
