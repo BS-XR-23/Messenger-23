@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 
 public class ChatUIManager : MonoBehaviour
 {
+
     public static ChatUIManager instance;
     public TextMeshProUGUI profileName;
     public RectTransform conversationContentPanel;
@@ -20,8 +21,9 @@ public class ChatUIManager : MonoBehaviour
     public GameObject chatBubblePrefab;
     public GameObject chatBubblePrefab_Mobile;
     public GameObject addFriendsPanel;
-    //For Add Friends
+    //For Add Friends & Chat
     public TMP_InputField friendsNameInputField;
+    public TMP_InputField sendMessangeInputField;
 
 
 
@@ -63,20 +65,26 @@ public class ChatUIManager : MonoBehaviour
 
     private void Awake()
     {
+
         instance = this;    
     }
 
 
     void Start()
     {
+
         loginPanel.SetActive(useInternalLogin);
     }
 
     public void OnLoginButtonClicked()
     {
         string username =  loginPanel.GetComponentInChildren<TMP_InputField>().text;
-        MessengerManager.instance.LoginToMessenger(username);
-        loginPanel.SetActive(false);
+        if (username != "")
+        {
+            MessengerManager.instance.LoginToMessenger(username);
+            loginPanel.SetActive(false);
+        }
+        
     }
 
     public void SetUserName(string name)
@@ -91,8 +99,11 @@ public class ChatUIManager : MonoBehaviour
 
     public void OnSendButtonClick()
     {
+        //sendMessangeInputField.text.Trim();
         SendMessageButtonEvent.Invoke();
+        
     }
+        
 
     //Calling Someone
 
@@ -146,7 +157,20 @@ public class ChatUIManager : MonoBehaviour
     // Just Creates A Brand new conversation based on given username.
     public void AddFriends()
     {
-        CreateNewConversation(friendsNameInputField.text);
+        if(friendsNameInputField.text == "")
+        {
+            return;
+        }
+        else
+        {
+            CreateNewConversation(friendsNameInputField.text);
+            addFriendsPanel.SetActive(false);
+        }
+        
+    }
+
+    public void CloseAddFriendWindow()
+    {
         addFriendsPanel.SetActive(false);
     }
 

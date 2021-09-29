@@ -689,6 +689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c64499e3de07424e8b63fcd52a71c21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mobilePrefab: 0
   profileName: {fileID: 7775131646854569962}
   lastMessage: {fileID: 7775131647216410561}
   onlineIcon: {fileID: 376681549}
@@ -705,8 +706,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8f45096e8948fb408c3ac77ce135a65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedToggleBGColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  deselectedToggleBGColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedToggleBGColor: {r: 1, g: 1, b: 1, a: 1}
+  deselectedToggleBGColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   OnClick:
     m_PersistentCalls:
       m_Calls: []
