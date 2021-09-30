@@ -7757,140 +7757,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
---- !u!1 &7840252156216013345
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7840252156216013359}
-  - component: {fileID: 7840252156216013344}
-  - component: {fileID: 7840252156216013358}
-  - component: {fileID: 7840252156216013357}
-  - component: {fileID: 7840252156216013356}
-  m_Layer: 0
-  m_Name: Managers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7840252156216013359
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7840252156216013345}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -289.88544, y: 138.68542, z: -3401.099}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7840252155966175848}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7840252156216013344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7840252156216013345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bf03b97630b4fc4cb092480eca29421, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chatSystem: {fileID: 7840252156216013358}
-  callManager: {fileID: 0}
-  loggedInUserID: 
-  RtcToken: 
-  messengerRoot: {fileID: 7840252154388343416}
-  AppID: ebc33db2bc634566a19712bdd98865cd
---- !u!114 &7840252156216013358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7840252156216013345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9a29d82f6edd0f4c90b2f3905a419ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  customServerURL: https://agora-token-demo.herokuapp.com
-  usernameText: {fileID: 7840252154847707271}
---- !u!114 &7840252156216013357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7840252156216013345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b53b34f884174c44a3d658d50369e04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  profileName: {fileID: 7840252155207494413}
-  conversationContentPanel: {fileID: 7840252156211904642}
-  chatListContentPanel: {fileID: 7840252156440657416}
-  senderPrefab: {fileID: 1528371841467000794, guid: db1884904db296e48b2b1aa880fcd9b7, type: 3}
-  receiverPrefab: {fileID: 2337376481574771369, guid: 4aaa76a96bb40914b8e786d6e45792a8, type: 3}
-  chatTextInput: {fileID: 7840252155907835193}
-  chatBubblePrefab: {fileID: 7775131645795815904, guid: def471ac9282b6c449a93c465789eca1, type: 3}
-  chatBubblePrefab_Mobile: {fileID: 0}
-  addFriendsPanel: {fileID: 7840252155705937740}
-  friendsNameInputField: {fileID: 7840252154580966531}
-  sendMessangeInputField: {fileID: 7840252155907835193}
-  callInterface: {fileID: 7840252154537987435}
-  receiverName: {fileID: 7840252155037814796}
-  videoCallSurface: {fileID: 7840252155708743757}
-  audioCallSurface: {fileID: 7840252155541695483}
-  incomingCallBase: {fileID: 7840252156388661818}
-  callerName: {fileID: 7840252156180509278}
-  SendMessageButtonEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  audioCallButtonEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  videoCallButtonEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  leaveCallButtonEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  acceptCallButtonEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  acceptVideoCallButtonEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  refuseCallButtonEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  loginPanel: {fileID: 7840252156178056300}
-  useInternalLogin: 1
-  homePage: {fileID: 0}
-  messagePage: {fileID: 0}
---- !u!114 &7840252156216013356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7840252156216013345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8eb644129e8b7e4bb134d6718c4c135, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isInCall: 0
-  videoImage: {fileID: 7840252155708743757}
 --- !u!1 &7840252156230895071
 GameObject:
   m_ObjectHideFlags: 0
@@ -9346,3 +9212,144 @@ MonoBehaviour:
     _usePolygonMap: 0
   wasConverted: 0
   preConvertedScale: {x: 0, y: 0, z: 0}
+--- !u!1001 &3337226501085121113
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7840252155966175848}
+    m_Modifications:
+    - target: {fileID: 4800307348575631476, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: callerName
+      value: 
+      objectReference: {fileID: 7840252156180509278}
+    - target: {fileID: 4800307348575631476, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: loginPanel
+      value: 
+      objectReference: {fileID: 7840252156178056300}
+    - target: {fileID: 4800307348575631476, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: profileName
+      value: 
+      objectReference: {fileID: 7840252155207494413}
+    - target: {fileID: 4800307348575631476, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: receiverName
+      value: 
+      objectReference: {fileID: 7840252155037814796}
+    - target: {fileID: 4800307348575631476, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: callInterface
+      value: 
+      objectReference: {fileID: 7840252154537987435}
+    - target: {fileID: 4800307348575631476, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: chatTextInput
+      value: 
+      objectReference: {fileID: 7840252155907835193}
+    - target: {fileID: 4800307348575631476, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: addFriendsPanel
+      value: 
+      objectReference: {fileID: 7840252155705937740}
+    - target: {fileID: 4800307348575631476, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: audioCallSurface
+      value: 
+      objectReference: {fileID: 7840252155541695483}
+    - target: {fileID: 4800307348575631476, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: incomingCallBase
+      value: 
+      objectReference: {fileID: 7840252156388661818}
+    - target: {fileID: 4800307348575631476, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: videoCallSurface
+      value: 
+      objectReference: {fileID: 7840252155708743757}
+    - target: {fileID: 4800307348575631476, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: chatListContentPanel
+      value: 
+      objectReference: {fileID: 7840252156440657416}
+    - target: {fileID: 4800307348575631476, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: friendsNameInputField
+      value: 
+      objectReference: {fileID: 7840252154580966531}
+    - target: {fileID: 4800307348575631476, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: sendMessangeInputField
+      value: 
+      objectReference: {fileID: 7840252155907835193}
+    - target: {fileID: 4800307348575631476, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: conversationContentPanel
+      value: 
+      objectReference: {fileID: 7840252156211904642}
+    - target: {fileID: 4800307348575631477, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: videoImage
+      value: 
+      objectReference: {fileID: 7840252155708743757}
+    - target: {fileID: 4800307348575631478, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800307348575631478, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -289.88544
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800307348575631478, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 138.68542
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800307348575631478, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3401.099
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800307348575631478, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800307348575631478, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800307348575631478, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800307348575631478, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800307348575631478, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800307348575631478, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800307348575631478, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800307348575631479, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: usernameText
+      value: 
+      objectReference: {fileID: 7840252154847707271}
+    - target: {fileID: 4800307348575631480, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: m_Name
+      value: Managers
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800307348575631481, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+      propertyPath: messengerRoot
+      value: 
+      objectReference: {fileID: 7840252154388343416}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+--- !u!4 &7840252156216013359 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4800307348575631478, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+  m_PrefabInstance: {fileID: 3337226501085121113}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7840252156216013357 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4800307348575631476, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+  m_PrefabInstance: {fileID: 3337226501085121113}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b53b34f884174c44a3d658d50369e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

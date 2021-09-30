@@ -94,6 +94,7 @@ public class ConversationController : MonoBehaviour
     {
         ChatUIManager.instance.SetUserName(recepientID);
         LoadMessages();
+
         ChatUIManager.instance.SendMessageButtonEvent.RemoveAllListeners();
         ChatUIManager.instance.SendMessageButtonEvent.AddListener(() =>
         {
@@ -159,6 +160,7 @@ public class ConversationController : MonoBehaviour
         
 
     }
+
 
     public void DoAfterConvoUpdate()
     {
