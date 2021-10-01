@@ -103,7 +103,8 @@ public class ChatUIManager : MonoBehaviour
 
     public void OnSendButtonClick()
     {
-        //sendMessangeInputField.text.Trim();
+
+        sendMessangeInputField.text.Trim();
         SendMessageButtonEvent.Invoke();
         
     }
