@@ -294,7 +294,20 @@ public class ChatUIManager : MonoBehaviour
         conversationContentPanel.DestoryAllChildImmediate();
     }
 
-
+    //private void Update()
+    //{
+    //    if(messagePage)
+    //    {
+    //        if(Input.GetKeyDown(KeyCode.Escape))
+    //        {
+    //            ShowHomeScreen();
+    //        }
+    //    }
+    //    if(homePage)
+    //    {
+    //        Application.Quit();
+    //    }
+    //}
     //Mobile UI Code
     public void ShowHomeScreen()
     {

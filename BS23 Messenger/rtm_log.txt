@@ -5746,3 +5746,804 @@ INFO    2021-09-30T19:18:17:458  20140; Agora Service Worker Thread stopped: 000
 INFO    2021-09-30T19:18:17:462   6488; CacheManager: save cache to storage elapsed 3
 INFO    2021-09-30T19:18:17:463   6488; CacheManager: save report cache to storage failed
 INFO    2021-09-30T19:18:17:463  18008; Agora Service Worker Thread stopped: 00000272AD840430
+
+
+INFO    2021-09-30T19:53:43:997   6488; [rtm-API] RtmCallService
+INFO    2021-09-30T19:53:43:998  17292; [ap] onParsedDns (normal) ap2.agora.io with err 0, 15.206.47.129, 3.109.44.76, 13.71.36.21, 3.109.63.250, 52.172.230.36, 13.127.149.196, 52.172.27.120, 35.154.71.21, 
+INFO    2021-09-30T19:53:43:998  17292; [ap] queryDns TLS domain is ap4-tls.agora.io
+INFO    2021-09-30T19:53:43:998  17292; [base_context]queryDns domain is ap4-tls.agora.io
+INFO    2021-09-30T19:53:44:000  17292; [ap] onParsedDns (TLS) ap4-tls.agora.io with err 0, 3.109.116.108, 20.193.241.143, 52.172.40.152, 
+INFO    2021-09-30T19:53:44:000   7100; [rlbs] queryDns(ap4-tls.agora.io)
+INFO    2021-09-30T19:53:44:000   7100; [base_context]queryDns domain is ap4-tls.agora.io
+INFO    2021-09-30T19:53:44:002   7100; [rlbs] onParsedDns ap4-tls.agora.io with err 0, 3.109.116.108, 20.193.241.143, 52.172.40.152, 
+INFO    2021-09-30T19:53:44:002   7100; [rlbs]queryDns(ap4.agora.io)
+INFO    2021-09-30T19:53:44:002   7100; [base_context]queryDns domain is ap4.agora.io
+INFO    2021-09-30T19:53:44:004   7100; [rlbs] onParsedDns ap4.agora.io with err 0, 52.172.230.36, 35.154.71.21, 15.206.47.129, 13.127.149.196, 3.109.44.76, 3.109.63.250, 52.172.27.120, 13.71.36.21, 
+INFO    2021-09-30T19:53:44:004   7100; [rlbs] Disable AUT, and enable TCP-ove-TLS in RTM.
+INFO    2021-09-30T19:53:44:004   7100; [rlbs] selected 20.193.241.143:8443: TCP-over-Tls
+INFO    2021-09-30T19:53:44:004   7100; connecting to 20.193.241.143:8443 handle ad685b90, 23400
+INFO    2021-09-30T19:53:44:206   7100; [rlbs] request rs list from 20.193.241.143:8443 with fake ch report_lbs_1633010024206.......
+INFO    2021-09-30T19:53:44:363   7100; recognized uri 64 from server 20.193.241.143:8443
+INFO    2021-09-30T19:53:44:363   7100; [rlbs] [report servers]: 199.190.44.135
+INFO    2021-09-30T19:53:44:363   7100; [rlbs] [report servers]: 129.227.205.198
+INFO    2021-09-30T19:53:44:363   7100; [rlbs] [report servers]: 122.10.255.165
+INFO    2021-09-30T19:53:44:363   7100; [rlbs/t] responsed from 20.193.241.143:8443 with servers 199.190.44.135:8130
+INFO    2021-09-30T19:53:44:363   7100; [rs] updateServers 199.190.44.135:8130, priority 3
+INFO    2021-09-30T19:53:44:363   7100; [rs] updateServers 129.227.205.198:8130, priority 3
+INFO    2021-09-30T19:53:44:363   7100; [rs] updateServers 122.10.255.165:8130, priority 3
+INFO    2021-09-30T19:53:44:363   7100; create session builder 00000272CF288DA0
+INFO    2021-09-30T19:53:44:363   7100; create dangling client connection 000002725AE0D810
+INFO    2021-09-30T19:53:44:366   7100; [remote:199.190.44.135:8130] start 0th connect, send client hello 810|syn, tags: SNI :3139392d3139...(28), PDMD:, CPTO:4e4f4e432000...(129), CID: 41137196770666
+INFO    2021-09-30T19:53:44:592   7100; [remote:199.190.44.135:8130] start 1th connect, send client hello 810|syn, tags: SNI :3139392d3139...(28), PDMD:, CPTO:4e4f4e432000...(129), CID: 41137196770666
+INFO    2021-09-30T19:53:44:654   7100; [remote:199.190.44.135:8130] receive server hello piece id: 0, 1/10, not complete
+INFO    2021-09-30T19:53:44:655   7100; [remote:199.190.44.135:8130] receive server hello piece id: 1, 2/10, not complete
+INFO    2021-09-30T19:53:44:655   7100; [remote:199.190.44.135:8130] receive server hello piece id: 2, 3/10, not complete
+INFO    2021-09-30T19:53:44:655   7100; [remote:199.190.44.135:8130] receive server hello piece id: 3, 4/10, not complete
+INFO    2021-09-30T19:53:44:655   7100; [remote:199.190.44.135:8130] receive server hello piece id: 4, 5/10, complete
+INFO    2021-09-30T19:53:44:657   7100; [remote:199.190.44.135:8130] create connection 000002736BA19D10, self initial seq: 811, initial rtt: 292ms, git tag: Unknown, perspective: Perspective::kClient, cc: BBRv1, pacing: enable
+INFO    2021-09-30T19:53:44:657   7100; [remote:199.190.44.135:8130] create session 00000273355E5FA0
+INFO    2021-09-30T19:53:44:657   7100; [rs] link aut to 199.190.44.135:8130 connected
+INFO    2021-09-30T19:53:44:657   7100; destroy dangling client connection 000002725AE0D810
+INFO    2021-09-30T19:53:49:000   6488; [rtm-API] rtm service login with user id: ****
+INFO    2021-09-30T19:53:49:000  17292; [rtm-ctx][0] rtm login, init chat context
+INFO    2021-09-30T19:53:49:000  17292; ***CHAT BEGIN: appid:'eb****************************cd' userId:'****' sid:'12352734073874058553000000000000'
+INFO    2021-09-30T19:53:49:000  17292; [rtm-chat][39] rtm emit login signal
+INFO    2021-09-30T19:53:49:000  17292; [rtm-chat][39] connection state change, from 1 to: 2, reason: 1
+INFO    2021-09-30T19:53:49:000  17292; [rtm-note] connection state change: 2, reason: 1
+INFO    2021-09-30T19:53:49:000  22540; [event-handler] onConnectionStateChanged called, state: 2, reason: 1
+INFO    2021-09-30T19:53:49:000  17292; [rtm-ctrl][39] max link count 2
+INFO    2021-09-30T19:53:49:000  17292; [rtm-chat][39] setup connection lost timer
+INFO    2021-09-30T19:53:49:000  17292; [rtm-chat][39] request link list, with user id: ****
+INFO    2021-09-30T19:53:49:000  17292; [ap] AP AUT count changed from 3 to 1 in RTM
+INFO    2021-09-30T19:53:49:000  17292; [ap] selected 3.109.63.250:8443 (AUT crypto), from 00000272CE3F79C0.
+INFO    2021-09-30T19:53:49:000  17292; create session builder 00000272CF285FA0
+INFO    2021-09-30T19:53:49:000  17292; [ap] selected 52.172.40.152:8443 (TCP-over-Tls), from 00000272CE3F79C0.
+INFO    2021-09-30T19:53:49:001  17292; connecting to 52.172.40.152:8443 handle 376ec7d0, 24056
+INFO    2021-09-30T19:53:49:001  17292; [ap] request ap for server list, area:GLOBAL, result: 3.109.63.250:8443, 52.172.40.152:8443, 
+INFO    2021-09-30T19:53:49:001  17292; create dangling client connection 000002725AE0F1E0
+INFO    2021-09-30T19:53:49:004  17292; [remote:3.109.63.250:8443] start 0th connect, send client hello 1272|syn, tags: SNI :332d3130392d...(26), PDMD:, CPTO:4e4f4e432000...(129), CID: 105273943416767
+INFO    2021-09-30T19:53:49:029   6488; [rtm-API] query 1 peers' online status, reqId is 138
+INFO    2021-09-30T19:53:49:029  17292; [rtm-ctx][39] rtm query 1 peers' online status, request Id is 138.
+INFO    2021-09-30T19:53:49:029  17292; [rtm-chat][39] queryPeersOnlineStatus request id: 138
+INFO    2021-09-30T19:53:49:029  17292; [rtm-chat][39] query peer online status timer setup, timeout: 5000 retries: 2
+INFO    2021-09-30T19:53:49:030   6488; [rtm-API] query 1 peers' online status, reqId is 139
+INFO    2021-09-30T19:53:49:030  17292; [rtm-ctx][39] rtm query 1 peers' online status, request Id is 139.
+INFO    2021-09-30T19:53:49:030  17292; [rtm-chat][39] queryPeersOnlineStatus request id: 139
+INFO    2021-09-30T19:53:49:030  17292; [rtm-chat][39] query peer online status timer setup, timeout: 5000 retries: 2
+INFO    2021-09-30T19:53:49:126  17292; [remote:3.109.63.250:8443] receive server hello piece id: 0, 1/10, not complete
+INFO    2021-09-30T19:53:49:126  17292; [remote:3.109.63.250:8443] receive server hello piece id: 1, 2/10, not complete
+INFO    2021-09-30T19:53:49:126  17292; [remote:3.109.63.250:8443] receive server hello piece id: 2, 3/10, not complete
+INFO    2021-09-30T19:53:49:126  17292; [remote:3.109.63.250:8443] receive server hello piece id: 3, 4/10, not complete
+INFO    2021-09-30T19:53:49:126  17292; [remote:3.109.63.250:8443] receive server hello piece id: 4, 5/10, complete
+INFO    2021-09-30T19:53:49:129  17292; [remote:3.109.63.250:8443] create connection 000002736BA20190, self initial seq: 1273, initial rtt: 125ms, git tag: Unknown, perspective: Perspective::kClient, cc: BBRv1, pacing: enable
+INFO    2021-09-30T19:53:49:129  17292; [remote:3.109.63.250:8443] create session 0000027337170490
+INFO    2021-09-30T19:53:49:129  17292; [ap/aut] connected with 3.109.63.250:8443
+INFO    2021-09-30T19:53:49:129  17292; destroy dangling client connection 000002725AE0F1E0
+INFO    2021-09-30T19:53:49:176  17292; [ap/tcp] connected with 52.172.40.152:8443
+INFO    2021-09-30T19:53:49:176  17292; [ap/tcp] connected with 52.172.40.152:8443 and flag 128.
+INFO    2021-09-30T19:53:49:176  17292; [ap] tcp - creating channel with 52.172.40.152:8443, ts 17418796, flag: 128
+INFO    2021-09-30T19:53:49:370  17292; recognized uri 70 from server 3.109.63.250:8443
+INFO    2021-09-30T19:53:49:370  17292; [ap/u] **responsed from 3.109.63.250:8443, (128).
+INFO    2021-09-30T19:53:49:370  17292; [ap] report success done, 3.109.63.250:8443 (AUT crypto) removed from 00000272CE3F79C0.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-ls][39] update server list(size: 3), area: SEA
+INFO    2021-09-30T19:53:49:371  17292; [rtm-ls][39] add new server: env 0, all size: 0, avail size: 0, IP : 128.1.105.153:9130.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-ls][39] add new server: env 1, all size: 0, avail size: 0, IP : 128.1.105.153:9130.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-ls][39] add new server: env 0, all size: 1, avail size: 1, IP : 122.10.255.160:9130.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-ls][39] add new server: env 1, all size: 1, avail size: 1, IP : 122.10.255.160:9130.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-ls][39] add new server: env 0, all size: 2, avail size: 2, IP : 129.227.205.91:9130.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-ls][39] add new server: env 1, all size: 2, avail size: 2, IP : 129.227.205.91:9130.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-ctrl][39] link 0 is initialized
+INFO    2021-09-30T19:53:49:371  17292; [rtm-ctrl][39] link 1 is initialized
+INFO    2021-09-30T19:53:49:371  17292; [rtm-ls][39] env 0 selected: 129.227.205.91:9130, ticket: MA********************************************************************************************Dh
+INFO    2021-09-30T19:53:49:371  17292; [rtm-ctrl][39] link 0 login with server: 129.227.205.91:9130
+INFO    2021-09-30T19:53:49:371  17292; [rtm-link0][39] login available times: 2 for server:129.227.205.91:9130
+INFO    2021-09-30T19:53:49:371  17292; link AUT Instance created.
+INFO    2021-09-30T19:53:49:371  17292; link AUT initialize started.
+INFO    2021-09-30T19:53:49:371  17292; link AUT Transformed to opening successfully.
+INFO    2021-09-30T19:53:49:371  17292; link AUT Transformed to opened successfully.
+INFO    2021-09-30T19:53:49:371  17292; link AUT initialize finished.
+INFO    2021-09-30T19:53:49:371  17292; link AUT create started.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] Instance created.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] initialization started.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] initialization succeed.
+INFO    2021-09-30T19:53:49:371  17292; link AUT create finished.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-link0][39] send login request(seq 140, elapse 371) to server 129.227.205.91:9120, instanceId: 12352734073874058553
+INFO    2021-09-30T19:53:49:371  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][2EF9C6727A974F7280A52CA4B064AAC0] begin-send started.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][2EF9C6727A974F7280A52CA4B064AAC0] begin-send finished.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] begin-open started.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] Transformed to opening successfully.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] observer started.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] network-transport-connect started.
+INFO    2021-09-30T19:53:49:371  17292; create session builder 0000027094B45A30
+INFO    2021-09-30T19:53:49:371  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] network-transport-connect succeed.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] begin-open finished.
+INFO    2021-09-30T19:53:49:371  17292; link AUT Instance destroyed in state opened.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-ls][39] server: 129.227.205.91:9131 is in use, ignored
+INFO    2021-09-30T19:53:49:371  17292; [rtm-ls][39] env 1 selected: 122.10.255.160:9131, ticket: MA********************************************************************************************Dh
+INFO    2021-09-30T19:53:49:371  17292; [rtm-ctrl][39] link 1 login with server: 122.10.255.160:9131
+INFO    2021-09-30T19:53:49:371  17292; [rtm-link1][39] login available times: 2 for server:122.10.255.160:9131
+INFO    2021-09-30T19:53:49:371  17292; link TLS Instance created.
+INFO    2021-09-30T19:53:49:371  17292; link TLS initialize started.
+INFO    2021-09-30T19:53:49:371  17292; link TLS Transformed to opening successfully.
+INFO    2021-09-30T19:53:49:371  17292; link TLS Transformed to opened successfully.
+INFO    2021-09-30T19:53:49:371  17292; link TLS initialize finished.
+INFO    2021-09-30T19:53:49:371  17292; link TLS create started.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] Instance created.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] initialization started.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] initialization succeed.
+INFO    2021-09-30T19:53:49:371  17292; link TLS create finished.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-link1][39] send login request(seq 141, elapse 371) to server 122.10.255.160:9137, instanceId: 12352734073874058553
+INFO    2021-09-30T19:53:49:371  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][CC202DF2B9D2401C9E1CC35913D7A07C] begin-send started.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][CC202DF2B9D2401C9E1CC35913D7A07C] begin-send finished.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] begin-open started.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] Transformed to opening successfully.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] observer started.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] network-transport-connect started.
+INFO    2021-09-30T19:53:49:371  17292; connecting to 122.10.255.160:9137 handle 376e98f0, 24520
+INFO    2021-09-30T19:53:49:371  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] network-transport-connect succeed.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] begin-open finished.
+INFO    2021-09-30T19:53:49:371  17292; link TLS Instance destroyed in state opened.
+INFO    2021-09-30T19:53:49:371  17292; recognized uri 70 from server 3.109.63.250:8443
+INFO    2021-09-30T19:53:49:371  17292; [ap/u] **responsed from 3.109.63.250:8443, (128).
+INFO    2021-09-30T19:53:49:371  17292; [rtm-ls][39] update server list(size: 3), area: SEA
+INFO    2021-09-30T19:53:49:371  17292; [rtm-ls][39] existing server, no need to add, IP : 128.1.105.153:9131.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-ls][39] existing server, no need to add, IP : 128.1.105.153:9131.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-ls][39] existing server, no need to add, IP : 122.10.255.160:9131.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-ls][39] existing server, no need to add, IP : 122.10.255.160:9131.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-ls][39] existing server, no need to add, IP : 129.227.205.91:9131.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-ls][39] existing server, no need to add, IP : 129.227.205.91:9131.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-ctrl][39] Re-initializing links, and link count limit, 2, reached. The re-initialing request is ignored.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-ctrl][39] Link not logged in, yet. And link 0, addr: 129.227.205.91:9120 has been used, and already logging status. The login request is ignored.
+INFO    2021-09-30T19:53:49:371  17292; [rtm-ctrl][39] Link not logged in, yet. And link 1, addr: 122.10.255.160:9137 has been used, and already logging status. The login request is ignored.
+INFO    2021-09-30T19:53:49:371  17292; create dangling client connection 000002725AE0F1E0
+INFO    2021-09-30T19:53:49:374  17292; [remote:129.227.205.91:9120] start 0th connect, send client hello 11786|syn, tags: SNI :3132392d3232...(28), PDMD:, CPTO:4e4f4e432000...(129), CID: 32229434596688
+INFO    2021-09-30T19:53:49:426  17292; [remote:129.227.205.91:9120] receive server hello piece id: 0, 1/8, not complete
+INFO    2021-09-30T19:53:49:427  17292; [remote:129.227.205.91:9120] receive server hello piece id: 1, 2/8, not complete
+INFO    2021-09-30T19:53:49:427  17292; [remote:129.227.205.91:9120] receive server hello piece id: 2, 3/8, not complete
+INFO    2021-09-30T19:53:49:427  17292; [remote:129.227.205.91:9120] receive server hello piece id: 3, 4/8, complete
+INFO    2021-09-30T19:53:49:429  17292; [remote:129.227.205.91:9120] create connection 000002736BA21AB0, self initial seq: 11787, initial rtt: 55ms, git tag: Unknown, perspective: Perspective::kClient, cc: BBRv1, pacing: enable
+INFO    2021-09-30T19:53:49:429  17292; [remote:129.227.205.91:9120] create session 0000027337171990
+INFO    2021-09-30T19:53:49:429  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] on-connect-connected started.
+INFO    2021-09-30T19:53:49:429  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] open started.
+INFO    2021-09-30T19:53:49:429  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] Transformed to opened successfully.
+INFO    2021-09-30T19:53:49:429  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] internal-on-opened started.
+INFO    2021-09-30T19:53:49:429  17292; [rtm-link0][39] tcp connected with 00000272AC8A55D0 : 129.227.205.91:9120
+INFO    2021-09-30T19:53:49:429  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] internal-on-opened succeed.
+INFO    2021-09-30T19:53:49:429  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] open finished.
+INFO    2021-09-30T19:53:49:429  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] on-connect-connected succeed.
+INFO    2021-09-30T19:53:49:429  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][2EF9C6727A974F7280A52CA4B064AAC0] begin-send started.
+INFO    2021-09-30T19:53:49:429  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][2EF9C6727A974F7280A52CA4B064AAC0] sending 134 bytes.
+INFO    2021-09-30T19:53:49:429  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][2EF9C6727A974F7280A52CA4B064AAC0] begin-send succeed.
+INFO    2021-09-30T19:53:49:429  17292; destroy dangling client connection 000002725AE0F1E0
+INFO    2021-09-30T19:53:49:472  17292; recognized uri 70 from server 52.172.40.152:8443
+INFO    2021-09-30T19:53:49:472  17292; [ap/t] **responsed from 52.172.40.152:8443, (128).
+INFO    2021-09-30T19:53:49:472  17292; [ap] report success done, 52.172.40.152:8443 (TCP-over-Tls) removed from 00000272CE3F79C0.
+INFO    2021-09-30T19:53:49:472  17292; [rtm-ls][39] update server list(size: 3), area: SEA
+INFO    2021-09-30T19:53:49:472  17292; [rtm-ls][39] existing server, no need to add, IP : 128.1.105.153:9130.
+INFO    2021-09-30T19:53:49:472  17292; [rtm-ls][39] existing server, no need to add, IP : 128.1.105.153:9130.
+INFO    2021-09-30T19:53:49:472  17292; [rtm-ls][39] existing server, no need to add, IP : 122.10.255.160:9130.
+INFO    2021-09-30T19:53:49:472  17292; [rtm-ls][39] existing server, no need to add, IP : 122.10.255.160:9130.
+INFO    2021-09-30T19:53:49:472  17292; [rtm-ls][39] add new server: env 0, all size: 3, avail size: 2, IP : 129.227.205.97:9130.
+INFO    2021-09-30T19:53:49:472  17292; [rtm-ls][39] add new server: env 1, all size: 3, avail size: 2, IP : 129.227.205.97:9130.
+INFO    2021-09-30T19:53:49:472  17292; [rtm-ctrl][39] Re-initializing links, and link count limit, 2, reached. The re-initialing request is ignored.
+INFO    2021-09-30T19:53:49:472  17292; [rtm-ctrl][39] Link not logged in, yet. And link 0, addr: 129.227.205.91:9120 has been used, and already logging status. The login request is ignored.
+INFO    2021-09-30T19:53:49:472  17292; [rtm-ctrl][39] Link not logged in, yet. And link 1, addr: 122.10.255.160:9137 has been used, and already logging status. The login request is ignored.
+INFO    2021-09-30T19:53:49:472  17292; recognized uri 70 from server 52.172.40.152:8443
+INFO    2021-09-30T19:53:49:472  17292; [ap/t] **responsed from 52.172.40.152:8443, (128).
+INFO    2021-09-30T19:53:49:472  17292; [rtm-ls][39] update server list(size: 3), area: SEA
+INFO    2021-09-30T19:53:49:472  17292; [rtm-ls][39] existing server, no need to add, IP : 128.1.105.153:9131.
+INFO    2021-09-30T19:53:49:472  17292; [rtm-ls][39] existing server, no need to add, IP : 128.1.105.153:9131.
+INFO    2021-09-30T19:53:49:472  17292; [rtm-ls][39] existing server, no need to add, IP : 122.10.255.160:9131.
+INFO    2021-09-30T19:53:49:472  17292; [rtm-ls][39] existing server, no need to add, IP : 122.10.255.160:9131.
+INFO    2021-09-30T19:53:49:472  17292; [rtm-ls][39] existing server, no need to add, IP : 129.227.205.97:9131.
+INFO    2021-09-30T19:53:49:472  17292; [rtm-ls][39] existing server, no need to add, IP : 129.227.205.97:9131.
+INFO    2021-09-30T19:53:49:472  17292; [rtm-ctrl][39] Re-initializing links, and link count limit, 2, reached. The re-initialing request is ignored.
+INFO    2021-09-30T19:53:49:472  17292; [rtm-ctrl][39] Link not logged in, yet. And link 0, addr: 129.227.205.91:9120 has been used, and already logging status. The login request is ignored.
+INFO    2021-09-30T19:53:49:472  17292; [rtm-ctrl][39] Link not logged in, yet. And link 1, addr: 122.10.255.160:9137 has been used, and already logging status. The login request is ignored.
+INFO    2021-09-30T19:53:49:472  17292; socket 24056 52.172.40.152:8443 error 0x11, socket error: 0
+INFO    2021-09-30T19:53:49:480  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][EBC782C62DD94121A75A778A67C4401E] on-data started.
+INFO    2021-09-30T19:53:49:480  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] internal-on-message-received started.
+INFO    2021-09-30T19:53:49:480  17292; Dispatching URI 12 from server 129.227.205.91:9120 (user agent: 0) to the handler.
+INFO    2021-09-30T19:53:49:480  17292; [rtm-link0][39] **login response (seq 140, code 0,  elapse 480) from 129.227.205.91:9120, and current dest server 129.227.205.91:9120
+INFO    2021-09-30T19:53:49:480  17292; [rtm-link0][39] link event err code: 0
+INFO    2021-09-30T19:53:49:480  17292; no on-going request, no need to sync
+INFO    2021-09-30T19:53:49:480  17292; [rtm-chat][39] login success
+INFO    2021-09-30T19:53:49:480  17292; [rtm-chat][39] connection state change, from 2 to: 3, reason: 2
+INFO    2021-09-30T19:53:49:480  17292; [rtm-note] connection state change: 3, reason: 2
+INFO    2021-09-30T19:53:49:480  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] internal-on-message-received succeed.
+INFO    2021-09-30T19:53:49:480  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][EBC782C62DD94121A75A778A67C4401E] on-data succeed.
+INFO    2021-09-30T19:53:49:480  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][EBC782C62DD94121A75A778A67C4401E] all 24 bytes handled.
+INFO    2021-09-30T19:53:49:481  22540; [event-handler] onConnectionStateChanged called, state: 3, reason: 2
+INFO    2021-09-30T19:53:49:516  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] on-connect-connected started.
+INFO    2021-09-30T19:53:49:516  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] open started.
+INFO    2021-09-30T19:53:49:516  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] Transformed to opened successfully.
+INFO    2021-09-30T19:53:49:516  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] internal-on-opened started.
+INFO    2021-09-30T19:53:49:516  17292; [rtm-link1][39] tcp connected with 00000272AC8A59C0 : 122.10.255.160:9137
+INFO    2021-09-30T19:53:49:516  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] internal-on-opened succeed.
+INFO    2021-09-30T19:53:49:516  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] open finished.
+INFO    2021-09-30T19:53:49:516  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] on-connect-connected succeed.
+INFO    2021-09-30T19:53:49:516  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][CC202DF2B9D2401C9E1CC35913D7A07C] begin-send started.
+INFO    2021-09-30T19:53:49:516  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][CC202DF2B9D2401C9E1CC35913D7A07C] sending 134 bytes.
+INFO    2021-09-30T19:53:49:516  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][CC202DF2B9D2401C9E1CC35913D7A07C] begin-send succeed.
+INFO    2021-09-30T19:53:49:593  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][D3F6F6CC9C7940D1AE939D24CFFFB4EF] on-data started.
+INFO    2021-09-30T19:53:49:593  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] internal-on-message-received started.
+INFO    2021-09-30T19:53:49:593  17292; Dispatching URI 12 from server 122.10.255.160:9137 (user agent: 0) to the handler.
+INFO    2021-09-30T19:53:49:593  17292; [rtm-link1][39] **login response (seq 141, code 0,  elapse 593) from 122.10.255.160:9137, and current dest server 122.10.255.160:9137
+INFO    2021-09-30T19:53:49:593  17292; [rtm-link1][39] link event err code: 0
+INFO    2021-09-30T19:53:49:593  17292; no on-going request, no need to sync
+INFO    2021-09-30T19:53:49:593  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] internal-on-message-received succeed.
+INFO    2021-09-30T19:53:49:593  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][D3F6F6CC9C7940D1AE939D24CFFFB4EF] on-data succeed.
+INFO    2021-09-30T19:53:49:593  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][D3F6F6CC9C7940D1AE939D24CFFFB4EF] all 24 bytes handled.
+INFO    2021-09-30T19:53:49:612  17292; [remote:3.109.63.250:8443] on connection close received, reason: 0, detail: 
+INFO    2021-09-30T19:53:49:612  17292; [remote:3.109.63.250:8443] start time wait, duration: 2000 ms
+INFO    2021-09-30T19:53:49:612  17292; [ap] aut socket error with 3.109.63.250:8443
+INFO    2021-09-30T19:53:49:612  17292; [remote:3.109.63.250:8443] destroy session 0000027337170490
+INFO    2021-09-30T19:53:49:612  17292; [remote:3.109.63.250:8443] destroy connection 000002736BA20190
+INFO    2021-09-30T19:53:50:481  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][B2C0997CAF384BA09E5646DF5B4F4D45] begin-send started.
+INFO    2021-09-30T19:53:50:481  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][B2C0997CAF384BA09E5646DF5B4F4D45] sending 22 bytes.
+INFO    2021-09-30T19:53:50:481  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][B2C0997CAF384BA09E5646DF5B4F4D45] begin-send succeed.
+INFO    2021-09-30T19:53:50:530  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][CA67A773931E4F0BA7D588E3B044196A] on-data started.
+INFO    2021-09-30T19:53:50:530  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] internal-on-message-received started.
+INFO    2021-09-30T19:53:50:530  17292; Dispatching URI 2 from server 129.227.205.91:9120 (user agent: 0) to the handler.
+INFO    2021-09-30T19:53:50:530  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] internal-on-message-received succeed.
+INFO    2021-09-30T19:53:50:530  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][CA67A773931E4F0BA7D588E3B044196A] on-data succeed.
+INFO    2021-09-30T19:53:50:530  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][CA67A773931E4F0BA7D588E3B044196A] all 22 bytes handled.
+INFO    2021-09-30T19:53:50:594  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][3CB0F70F86044462BEE624D075BF6C87] begin-send started.
+INFO    2021-09-30T19:53:50:594  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][3CB0F70F86044462BEE624D075BF6C87] sending 22 bytes.
+INFO    2021-09-30T19:53:50:594  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][3CB0F70F86044462BEE624D075BF6C87] begin-send succeed.
+INFO    2021-09-30T19:53:50:665  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][6E2EA2DC862745C1B8410753DECAFFD0] on-data started.
+INFO    2021-09-30T19:53:50:665  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] internal-on-message-received started.
+INFO    2021-09-30T19:53:50:665  17292; Dispatching URI 2 from server 122.10.255.160:9137 (user agent: 0) to the handler.
+INFO    2021-09-30T19:53:50:665  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] internal-on-message-received succeed.
+INFO    2021-09-30T19:53:50:665  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][6E2EA2DC862745C1B8410753DECAFFD0] on-data succeed.
+INFO    2021-09-30T19:53:50:665  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][6E2EA2DC862745C1B8410753DECAFFD0] all 22 bytes handled.
+INFO    2021-09-30T19:53:51:197   7100; [remote:199.190.44.135:8130] path MTU to remote increased: 1280 --> 1365
+INFO    2021-09-30T19:53:51:197   7100; [remote:199.190.44.135:8130] on max stream frame length changed from 1204 to 1339
+INFO    2021-09-30T19:53:51:594  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][1C93F8BAC4184D609556DF3A088B0BB8] begin-send started.
+INFO    2021-09-30T19:53:51:594  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][1C93F8BAC4184D609556DF3A088B0BB8] sending 22 bytes.
+INFO    2021-09-30T19:53:51:594  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][1C93F8BAC4184D609556DF3A088B0BB8] begin-send succeed.
+INFO    2021-09-30T19:53:51:666  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][61502F9710054255B8CFED9CB274E52B] on-data started.
+INFO    2021-09-30T19:53:51:666  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] internal-on-message-received started.
+INFO    2021-09-30T19:53:51:666  17292; Dispatching URI 2 from server 122.10.255.160:9137 (user agent: 0) to the handler.
+INFO    2021-09-30T19:53:51:666  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] internal-on-message-received succeed.
+INFO    2021-09-30T19:53:51:666  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][61502F9710054255B8CFED9CB274E52B] on-data succeed.
+INFO    2021-09-30T19:53:51:666  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][61502F9710054255B8CFED9CB274E52B] all 22 bytes handled.
+INFO    2021-09-30T19:53:52:480  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][7D12523F43C743E6A70EA955D8D52C66] begin-send started.
+INFO    2021-09-30T19:53:52:480  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][7D12523F43C743E6A70EA955D8D52C66] sending 22 bytes.
+INFO    2021-09-30T19:53:52:480  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][7D12523F43C743E6A70EA955D8D52C66] begin-send succeed.
+INFO    2021-09-30T19:53:52:532  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][B69F188CEE624E1AA134CC53CA25DDAC] on-data started.
+INFO    2021-09-30T19:53:52:532  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] internal-on-message-received started.
+INFO    2021-09-30T19:53:52:532  17292; Dispatching URI 2 from server 129.227.205.91:9120 (user agent: 0) to the handler.
+INFO    2021-09-30T19:53:52:532  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] internal-on-message-received succeed.
+INFO    2021-09-30T19:53:52:532  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][B69F188CEE624E1AA134CC53CA25DDAC] on-data succeed.
+INFO    2021-09-30T19:53:52:532  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][B69F188CEE624E1AA134CC53CA25DDAC] all 22 bytes handled.
+INFO    2021-09-30T19:53:53:481  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][2DDE417FD5784E27AB4798FB0EA42333] begin-send started.
+INFO    2021-09-30T19:53:53:481  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][2DDE417FD5784E27AB4798FB0EA42333] sending 22 bytes.
+INFO    2021-09-30T19:53:53:481  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][2DDE417FD5784E27AB4798FB0EA42333] begin-send succeed.
+INFO    2021-09-30T19:53:53:534  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][96041870620743D3A8AE8E972F1E5E76] on-data started.
+INFO    2021-09-30T19:53:53:534  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] internal-on-message-received started.
+INFO    2021-09-30T19:53:53:534  17292; Dispatching URI 2 from server 129.227.205.91:9120 (user agent: 0) to the handler.
+INFO    2021-09-30T19:53:53:534  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] internal-on-message-received succeed.
+INFO    2021-09-30T19:53:53:534  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][96041870620743D3A8AE8E972F1E5E76] on-data succeed.
+INFO    2021-09-30T19:53:53:534  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][96041870620743D3A8AE8E972F1E5E76] all 22 bytes handled.
+INFO    2021-09-30T19:53:53:594  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][8BE5A4FEBF5B4810958AEC91A2647088] begin-send started.
+INFO    2021-09-30T19:53:53:594  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][8BE5A4FEBF5B4810958AEC91A2647088] sending 22 bytes.
+INFO    2021-09-30T19:53:53:594  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][8BE5A4FEBF5B4810958AEC91A2647088] begin-send succeed.
+INFO    2021-09-30T19:53:53:664  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][4674C727B685465786808397AB865EA4] on-data started.
+INFO    2021-09-30T19:53:53:664  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] internal-on-message-received started.
+INFO    2021-09-30T19:53:53:664  17292; Dispatching URI 2 from server 122.10.255.160:9137 (user agent: 0) to the handler.
+INFO    2021-09-30T19:53:53:664  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] internal-on-message-received succeed.
+INFO    2021-09-30T19:53:53:664  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][4674C727B685465786808397AB865EA4] on-data succeed.
+INFO    2021-09-30T19:53:53:664  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][4674C727B685465786808397AB865EA4] all 22 bytes handled.
+INFO    2021-09-30T19:53:53:903  17292; [remote:129.227.205.91:9120] path MTU to remote increased: 1280 --> 1365
+INFO    2021-09-30T19:53:53:903  17292; [remote:129.227.205.91:9120] on max stream frame length changed from 1204 to 1339
+INFO    2021-09-30T19:53:54:001  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][E898C30D2ACF46248E0132020B1A050B] begin-send started.
+INFO    2021-09-30T19:53:54:001  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][E898C30D2ACF46248E0132020B1A050B] sending 21 bytes.
+INFO    2021-09-30T19:53:54:001  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][E898C30D2ACF46248E0132020B1A050B] begin-send succeed.
+INFO    2021-09-30T19:53:54:001  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][C0667A3359554D8E9E1CCEACF5A951F6] begin-send started.
+INFO    2021-09-30T19:53:54:001  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][C0667A3359554D8E9E1CCEACF5A951F6] sending 21 bytes.
+INFO    2021-09-30T19:53:54:001  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][C0667A3359554D8E9E1CCEACF5A951F6] begin-send succeed.
+INFO    2021-09-30T19:53:54:001  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][E959B70973F840E48E38D2A4FF82B716] begin-send started.
+INFO    2021-09-30T19:53:54:001  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][E959B70973F840E48E38D2A4FF82B716] sending 23 bytes.
+INFO    2021-09-30T19:53:54:001  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][E959B70973F840E48E38D2A4FF82B716] begin-send succeed.
+INFO    2021-09-30T19:53:54:001  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][0E535FA3C07D4811970B51EFF8DBB4C4] begin-send started.
+INFO    2021-09-30T19:53:54:001  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][0E535FA3C07D4811970B51EFF8DBB4C4] sending 23 bytes.
+INFO    2021-09-30T19:53:54:001  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][0E535FA3C07D4811970B51EFF8DBB4C4] begin-send succeed.
+INFO    2021-09-30T19:53:54:104  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][6BA26F261344458FA47C6B45B1FBB505] on-data started.
+INFO    2021-09-30T19:53:54:104  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] internal-on-message-received started.
+INFO    2021-09-30T19:53:54:104  17292; Dispatching URI 42 from server 122.10.255.160:9137 (user agent: 0) to the handler.
+INFO    2021-09-30T19:53:54:104  17292; [rtm-link1][39] get 1 peersOnlineStatus, seq: 139
+INFO    2021-09-30T19:53:54:104  17292; [rtm-note] onQueryPeersOnlineStatusResult, reqId 139 , err code 0
+INFO    2021-09-30T19:53:54:104  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] internal-on-message-received succeed.
+INFO    2021-09-30T19:53:54:104  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][6BA26F261344458FA47C6B45B1FBB505] on-data succeed.
+INFO    2021-09-30T19:53:54:104  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][6BA26F261344458FA47C6B45B1FBB505] all 27 bytes handled.
+INFO    2021-09-30T19:53:54:104  22540; [event-handler] onPeersOnlineStatusChanged called, isQuerySubscriptionRequest: 0, isReloginSubscriptionRequest:0
+INFO    2021-09-30T19:53:54:104  22540; [event-handler] onQueryPeersOnlineStatusResult called, req: 139, count: 1, errorCode: 0
+INFO    2021-09-30T19:53:54:107  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][A52EDF0D0C8B4A80B7FD89A2A671C9FD] on-data started.
+INFO    2021-09-30T19:53:54:107  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] internal-on-message-received started.
+INFO    2021-09-30T19:53:54:107  17292; Dispatching URI 42 from server 129.227.205.91:9120 (user agent: 0) to the handler.
+INFO    2021-09-30T19:53:54:107  17292; [rtm-link0][39] get 1 peersOnlineStatus, seq: 139
+INFO    2021-09-30T19:53:54:107  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] internal-on-message-received succeed.
+INFO    2021-09-30T19:53:54:107  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][A52EDF0D0C8B4A80B7FD89A2A671C9FD] on-data succeed.
+INFO    2021-09-30T19:53:54:107  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][A52EDF0D0C8B4A80B7FD89A2A671C9FD] all 27 bytes handled.
+INFO    2021-09-30T19:53:54:107   6488; [rtm-API] rtm stop service, sync: 1
+INFO    2021-09-30T19:53:54:107  17292; [rtm-link0][39] send logout request * 3
+INFO    2021-09-30T19:53:54:107  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][693C96A760094981A72E8303EB421079] begin-send started.
+INFO    2021-09-30T19:53:54:107  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][693C96A760094981A72E8303EB421079] sending 6 bytes (high priority).
+INFO    2021-09-30T19:53:54:107  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][693C96A760094981A72E8303EB421079] begin-send succeed.
+INFO    2021-09-30T19:53:54:107  17292; [rtm-link1][39] send logout request * 3
+INFO    2021-09-30T19:53:54:107  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][2CC7BF13758544109A1D2D9DF4AF5DA0] begin-send started.
+INFO    2021-09-30T19:53:54:107  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][2CC7BF13758544109A1D2D9DF4AF5DA0] sending 6 bytes (high priority).
+INFO    2021-09-30T19:53:54:107  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][2CC7BF13758544109A1D2D9DF4AF5DA0] begin-send succeed.
+INFO    2021-09-30T19:53:54:107  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][F86638F65DCC499D8AC78939B27DAB35] on-data started.
+INFO    2021-09-30T19:53:54:107  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] internal-on-message-received started.
+INFO    2021-09-30T19:53:54:107  17292; Dispatching URI 42 from server 129.227.205.91:9120 (user agent: 0) to the handler.
+INFO    2021-09-30T19:53:54:107  17292; [rtm-link0][39] get 1 peersOnlineStatus, seq: 138
+INFO    2021-09-30T19:53:54:107  17292; [rtm-note] onQueryPeersOnlineStatusResult, reqId 138 , err code 0
+INFO    2021-09-30T19:53:54:107  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] internal-on-message-received succeed.
+INFO    2021-09-30T19:53:54:107  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][F86638F65DCC499D8AC78939B27DAB35] on-data succeed.
+INFO    2021-09-30T19:53:54:107  22540; [event-handler] onPeersOnlineStatusChanged called, isQuerySubscriptionRequest: 0, isReloginSubscriptionRequest:0
+INFO    2021-09-30T19:53:54:107  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC][F86638F65DCC499D8AC78939B27DAB35] all 25 bytes handled.
+INFO    2021-09-30T19:53:54:107  22540; [event-handler] onQueryPeersOnlineStatusResult called, req: 138, count: 1, errorCode: 0
+INFO    2021-09-30T19:53:54:162  17292; [remote:129.227.205.91:9120] on connection close received, reason: 0, detail: 
+INFO    2021-09-30T19:53:54:162  17292; [remote:129.227.205.91:9120] start time wait, duration: 2000 ms
+INFO    2021-09-30T19:53:54:162  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] on-error started.
+INFO    2021-09-30T19:53:54:162  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] fault started.
+INFO    2021-09-30T19:53:54:162  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] Transformed to faulted successfully.
+INFO    2021-09-30T19:53:54:162  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] internal-on-faulted started.
+INFO    2021-09-30T19:53:54:162  17292; [rtm-link0][39] tcp error with 00000272AC8A55D0 ignored during logging out
+INFO    2021-09-30T19:53:54:162  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] begin-abort started.
+INFO    2021-09-30T19:53:54:162  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] Transformed to closing (abort) successfully from faulted.
+INFO    2021-09-30T19:53:54:162  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] network-transport-reset started.
+INFO    2021-09-30T19:53:54:162  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] network-transport-reset succeed.
+INFO    2021-09-30T19:53:54:162  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] begin-abort finished.
+INFO    2021-09-30T19:53:54:162  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] internal-on-faulted succeed.
+INFO    2021-09-30T19:53:54:162  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] fault finished.
+INFO    2021-09-30T19:53:54:162  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] begin-abort started.
+INFO    2021-09-30T19:53:54:162  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] Transformed to closing (abort) successfully from closing.
+INFO    2021-09-30T19:53:54:162  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] already in closing state. Cleanup skipped.
+INFO    2021-09-30T19:53:54:162  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] begin-abort finished.
+INFO    2021-09-30T19:53:54:162  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] on-error finished.
+INFO    2021-09-30T19:53:54:162  17292; [remote:129.227.205.91:9120] destroy session 0000027337171990
+INFO    2021-09-30T19:53:54:162  17292; [remote:129.227.205.91:9120] destroy connection 000002736BA21AB0
+INFO    2021-09-30T19:53:54:176  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][E81F54AEB8B9404884AA23A1F63278F1] on-data started.
+INFO    2021-09-30T19:53:54:176  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] internal-on-message-received started.
+INFO    2021-09-30T19:53:54:176  17292; Dispatching URI 42 from server 122.10.255.160:9137 (user agent: 0) to the handler.
+INFO    2021-09-30T19:53:54:176  17292; [rtm-link1][39] get 1 peersOnlineStatus, seq: 138
+INFO    2021-09-30T19:53:54:176  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] internal-on-message-received succeed.
+INFO    2021-09-30T19:53:54:176  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][E81F54AEB8B9404884AA23A1F63278F1] on-data succeed.
+INFO    2021-09-30T19:53:54:176  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][E81F54AEB8B9404884AA23A1F63278F1] all 25 bytes handled.
+INFO    2021-09-30T19:53:54:177  17292; socket 24520 122.10.255.160:9137 error 0x11, socket error: 0
+INFO    2021-09-30T19:53:54:608  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] observer finished.
+INFO    2021-09-30T19:53:54:608  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] Channel destroyed. The underlying instance might be destroyed later.
+INFO    2021-09-30T19:53:54:608  17292; [rtm-link0][39][129.227.205.91:9120][NT_AUT][A02E8D19588E45F99FADB5B9BE6371BC] Instance destroyed in state closing.
+INFO    2021-09-30T19:53:54:608  17292; [rtm-link1][39] send logout request * 3
+INFO    2021-09-30T19:53:54:608  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][9A029EA5C1D2457DA0A7A77BBDBAB84D] begin-send started.
+INFO    2021-09-30T19:53:54:608  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][9A029EA5C1D2457DA0A7A77BBDBAB84D] sending 6 bytes (high priority).
+WARN    2021-09-30T19:53:54:608  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA][9A029EA5C1D2457DA0A7A77BBDBAB84D] begin-send failed: general error: -14
+INFO    2021-09-30T19:53:54:608  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] observer finished.
+INFO    2021-09-30T19:53:54:608  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] Channel destroyed. The underlying instance might be destroyed later.
+INFO    2021-09-30T19:53:54:608  17292; [rtm-link1][39][122.10.255.160:9137][NT_TLS][741725812FE64E7EAF755F62782F84FA] Instance destroyed in state opened.
+INFO    2021-09-30T19:53:54:609   6488; [rtm-note] stop async handler
+INFO    2021-09-30T19:53:54:610   6488; async task worker thread exited gracefully
+INFO    2021-09-30T19:53:54:610   6488; rtm service release, count:0
+
+INFO    2021-09-30T19:53:54:610   6488; agora service release
+
+INFO    2021-09-30T19:53:54:610   7100; [rs] **report stats: seq: 21, report list size 2, tx/rx: 3286/912, cache size: 0
+INFO    2021-09-30T19:53:54:610   7100; [rs] report server1: 199.190.44.135:8130
+INFO    2021-09-30T19:53:54:610   7100; [remote:199.190.44.135:8130] destroy session 00000273355E5FA0
+INFO    2021-09-30T19:53:54:610   7100; [remote:199.190.44.135:8130] destroy connection 000002736BA19D10
+INFO    2021-09-30T19:53:54:611   7100; Agora Service Worker Thread stopped: 000002737ADB5560
+INFO    2021-09-30T19:53:54:620   6488; CacheManager: save cache to storage elapsed 8
+INFO    2021-09-30T19:53:54:621   6488; CacheManager: save report cache to storage failed
+INFO    2021-09-30T19:53:54:621  17292; Agora Service Worker Thread stopped: 00000272AC0B5A80
+
+
+INFO    2021-09-30T19:54:00:670   6488; [rtm-API] RtmCallService
+INFO    2021-09-30T19:54:00:671   5656; [ap] onParsedDns (normal) ap2.agora.io with err 0, 15.206.47.129, 3.109.44.76, 13.71.36.21, 3.109.63.250, 52.172.230.36, 13.127.149.196, 52.172.27.120, 35.154.71.21, 
+INFO    2021-09-30T19:54:00:671   5656; [ap] queryDns TLS domain is ap4-tls.agora.io
+INFO    2021-09-30T19:54:00:671   5656; [base_context]queryDns domain is ap4-tls.agora.io
+INFO    2021-09-30T19:54:00:673   5656; [ap] onParsedDns (TLS) ap4-tls.agora.io with err 0, 3.109.116.108, 20.193.241.143, 52.172.40.152, 
+INFO    2021-09-30T19:54:00:673  18208; [rlbs] queryDns(ap4-tls.agora.io)
+INFO    2021-09-30T19:54:00:673  18208; [base_context]queryDns domain is ap4-tls.agora.io
+INFO    2021-09-30T19:54:00:675  18208; [rlbs] onParsedDns ap4-tls.agora.io with err 0, 3.109.116.108, 20.193.241.143, 52.172.40.152, 
+INFO    2021-09-30T19:54:00:675  18208; [rlbs]queryDns(ap4.agora.io)
+INFO    2021-09-30T19:54:00:675  18208; [base_context]queryDns domain is ap4.agora.io
+INFO    2021-09-30T19:54:00:677  18208; [rlbs] onParsedDns ap4.agora.io with err 0, 52.172.230.36, 35.154.71.21, 15.206.47.129, 13.127.149.196, 3.109.44.76, 3.109.63.250, 52.172.27.120, 13.71.36.21, 
+INFO    2021-09-30T19:54:00:678  18208; [rlbs] Disable AUT, and enable TCP-ove-TLS in RTM.
+INFO    2021-09-30T19:54:00:678  18208; [rlbs] selected 20.193.241.143:8443: TCP-over-Tls
+INFO    2021-09-30T19:54:00:678  18208; connecting to 20.193.241.143:8443 handle 376e9710, 23060
+INFO    2021-09-30T19:54:00:880  18208; [rlbs] request rs list from 20.193.241.143:8443 with fake ch report_lbs_1633010040880.......
+INFO    2021-09-30T19:54:01:407  18208; recognized uri 64 from server 20.193.241.143:8443
+INFO    2021-09-30T19:54:01:407  18208; [rlbs] [report servers]: 45.40.48.115
+INFO    2021-09-30T19:54:01:407  18208; [rlbs] [report servers]: 128.1.87.196
+INFO    2021-09-30T19:54:01:407  18208; [rlbs] [report servers]: 129.227.156.4
+INFO    2021-09-30T19:54:01:407  18208; [rlbs/t] responsed from 20.193.241.143:8443 with servers 45.40.48.115:8130
+INFO    2021-09-30T19:54:01:407  18208; [rs] updateServers 45.40.48.115:8130, priority 3
+INFO    2021-09-30T19:54:01:407  18208; [rs] updateServers 128.1.87.196:8130, priority 3
+INFO    2021-09-30T19:54:01:407  18208; [rs] updateServers 129.227.156.4:8130, priority 3
+INFO    2021-09-30T19:54:01:407  18208; create session builder 00000272CF288C30
+INFO    2021-09-30T19:54:01:407  18208; create dangling client connection 000002725AE0EA80
+INFO    2021-09-30T19:54:01:410  18208; [remote:45.40.48.115:8130] start 0th connect, send client hello 17736|syn, tags: SNI :34352d34302d...(26), PDMD:, CPTO:4e4f4e432000...(129), CID: 5334349382874
+INFO    2021-09-30T19:54:01:471  18208; [remote:45.40.48.115:8130] receive server hello piece id: 0, 1/10, not complete
+INFO    2021-09-30T19:54:01:471  18208; [remote:45.40.48.115:8130] receive server hello piece id: 1, 2/10, not complete
+INFO    2021-09-30T19:54:01:471  18208; [remote:45.40.48.115:8130] receive server hello piece id: 2, 3/10, not complete
+INFO    2021-09-30T19:54:01:471  18208; [remote:45.40.48.115:8130] receive server hello piece id: 3, 4/10, not complete
+INFO    2021-09-30T19:54:01:471  18208; [remote:45.40.48.115:8130] receive server hello piece id: 4, 5/10, complete
+INFO    2021-09-30T19:54:01:474  18208; [remote:45.40.48.115:8130] create connection 000002736BA1A9A0, self initial seq: 17737, initial rtt: 64ms, git tag: Unknown, perspective: Perspective::kClient, cc: BBRv1, pacing: enable
+INFO    2021-09-30T19:54:01:474  18208; [remote:45.40.48.115:8130] create session 00000273355E5820
+INFO    2021-09-30T19:54:01:474  18208; [rs] link aut to 45.40.48.115:8130 connected
+INFO    2021-09-30T19:54:01:474  18208; destroy dangling client connection 000002725AE0EA80
+INFO    2021-09-30T19:54:04:462   6488; [rtm-API] rtm service login with user id: ****
+INFO    2021-09-30T19:54:04:462   5656; [rtm-ctx][0] rtm login, init chat context
+INFO    2021-09-30T19:54:04:462   5656; ***CHAT BEGIN: appid:'eb****************************cd' userId:'****' sid:'11990353254858232618000000000000'
+INFO    2021-09-30T19:54:04:462   5656; [rtm-chat][2a] rtm emit login signal
+INFO    2021-09-30T19:54:04:462   5656; [rtm-chat][2a] connection state change, from 1 to: 2, reason: 1
+INFO    2021-09-30T19:54:04:462   5656; [rtm-note] connection state change: 2, reason: 1
+INFO    2021-09-30T19:54:04:462  24852; [event-handler] onConnectionStateChanged called, state: 2, reason: 1
+INFO    2021-09-30T19:54:04:462   5656; [rtm-ctrl][2a] max link count 2
+INFO    2021-09-30T19:54:04:462   5656; [rtm-chat][2a] setup connection lost timer
+INFO    2021-09-30T19:54:04:462   5656; [rtm-chat][2a] request link list, with user id: ****
+INFO    2021-09-30T19:54:04:462   5656; [ap] AP AUT count changed from 3 to 1 in RTM
+INFO    2021-09-30T19:54:04:462   5656; [ap] selected 3.109.63.250:8443 (AUT crypto), from 000002709A02A920.
+INFO    2021-09-30T19:54:04:463   5656; create session builder 00000272ADDCD640
+INFO    2021-09-30T19:54:04:463   5656; [ap] selected 52.172.40.152:8443 (TCP-over-Tls), from 000002709A02A920.
+INFO    2021-09-30T19:54:04:463   5656; connecting to 52.172.40.152:8443 handle ad6857d0, 25400
+INFO    2021-09-30T19:54:04:463   5656; [ap] request ap for server list, area:GLOBAL, result: 3.109.63.250:8443, 52.172.40.152:8443, 
+INFO    2021-09-30T19:54:04:463   5656; create dangling client connection 000002725AE0EA80
+INFO    2021-09-30T19:54:04:466   5656; [remote:3.109.63.250:8443] start 0th connect, send client hello 14831|syn, tags: SNI :332d3130392d...(26), PDMD:, CPTO:4e4f4e432000...(129), CID: 48644799605822
+INFO    2021-09-30T19:54:04:489   6488; [rtm-API] query 1 peers' online status, reqId is 142
+INFO    2021-09-30T19:54:04:489   5656; [rtm-ctx][2a] rtm query 1 peers' online status, request Id is 142.
+INFO    2021-09-30T19:54:04:489   5656; [rtm-chat][2a] queryPeersOnlineStatus request id: 142
+INFO    2021-09-30T19:54:04:489   5656; [rtm-chat][2a] query peer online status timer setup, timeout: 5000 retries: 2
+INFO    2021-09-30T19:54:04:490   6488; [rtm-API] query 1 peers' online status, reqId is 143
+INFO    2021-09-30T19:54:04:490   5656; [rtm-ctx][2a] rtm query 1 peers' online status, request Id is 143.
+INFO    2021-09-30T19:54:04:490   5656; [rtm-chat][2a] queryPeersOnlineStatus request id: 143
+INFO    2021-09-30T19:54:04:490   5656; [rtm-chat][2a] query peer online status timer setup, timeout: 5000 retries: 2
+INFO    2021-09-30T19:54:04:581   5656; [remote:3.109.63.250:8443] receive server hello piece id: 0, 1/10, not complete
+INFO    2021-09-30T19:54:04:581   5656; [remote:3.109.63.250:8443] receive server hello piece id: 1, 2/10, not complete
+INFO    2021-09-30T19:54:04:581   5656; [remote:3.109.63.250:8443] receive server hello piece id: 2, 3/10, not complete
+INFO    2021-09-30T19:54:04:581   5656; [remote:3.109.63.250:8443] receive server hello piece id: 3, 4/10, not complete
+INFO    2021-09-30T19:54:04:582   5656; [remote:3.109.63.250:8443] receive server hello piece id: 4, 5/10, complete
+INFO    2021-09-30T19:54:04:584   5656; [remote:3.109.63.250:8443] create connection 000002736BA20190, self initial seq: 14832, initial rtt: 119ms, git tag: Unknown, perspective: Perspective::kClient, cc: BBRv1, pacing: enable
+INFO    2021-09-30T19:54:04:584   5656; [remote:3.109.63.250:8443] create session 000002736B7AEC60
+INFO    2021-09-30T19:54:04:584   5656; [ap/aut] connected with 3.109.63.250:8443
+INFO    2021-09-30T19:54:04:584   5656; destroy dangling client connection 000002725AE0EA80
+INFO    2021-09-30T19:54:04:633   5656; [ap/tcp] connected with 52.172.40.152:8443
+INFO    2021-09-30T19:54:04:633   5656; [ap/tcp] connected with 52.172.40.152:8443 and flag 128.
+INFO    2021-09-30T19:54:04:633   5656; [ap] tcp - creating channel with 52.172.40.152:8443, ts 17434259, flag: 128
+INFO    2021-09-30T19:54:04:786   5656; recognized uri 70 from server 52.172.40.152:8443
+INFO    2021-09-30T19:54:04:786   5656; [ap/t] **responsed from 52.172.40.152:8443, (128).
+INFO    2021-09-30T19:54:04:786   5656; [ap] report success done, 52.172.40.152:8443 (TCP-over-Tls) removed from 000002709A02A920.
+INFO    2021-09-30T19:54:04:786   5656; [rtm-ls][2a] update server list(size: 3), area: SEA
+INFO    2021-09-30T19:54:04:786   5656; [rtm-ls][2a] add new server: env 0, all size: 0, avail size: 0, IP : 164.52.122.50:9130.
+INFO    2021-09-30T19:54:04:786   5656; [rtm-ls][2a] add new server: env 1, all size: 0, avail size: 0, IP : 164.52.122.50:9130.
+INFO    2021-09-30T19:54:04:786   5656; [rtm-ls][2a] add new server: env 0, all size: 1, avail size: 1, IP : 122.10.255.160:9130.
+INFO    2021-09-30T19:54:04:786   5656; [rtm-ls][2a] add new server: env 1, all size: 1, avail size: 1, IP : 122.10.255.160:9130.
+INFO    2021-09-30T19:54:04:786   5656; [rtm-ls][2a] add new server: env 0, all size: 2, avail size: 2, IP : 128.1.105.154:9130.
+INFO    2021-09-30T19:54:04:786   5656; [rtm-ls][2a] add new server: env 1, all size: 2, avail size: 2, IP : 128.1.105.154:9130.
+INFO    2021-09-30T19:54:04:786   5656; [rtm-ctrl][2a] link 0 is initialized
+INFO    2021-09-30T19:54:04:786   5656; [rtm-ctrl][2a] link 1 is initialized
+INFO    2021-09-30T19:54:04:786   5656; [rtm-ls][2a] env 0 selected: 128.1.105.154:9130, ticket: MA********************************************************************************************K8
+INFO    2021-09-30T19:54:04:786   5656; [rtm-ctrl][2a] link 0 login with server: 128.1.105.154:9130
+INFO    2021-09-30T19:54:04:786   5656; [rtm-link0][2a] login available times: 2 for server:128.1.105.154:9130
+INFO    2021-09-30T19:54:04:786   5656; link AUT Instance created.
+INFO    2021-09-30T19:54:04:786   5656; link AUT initialize started.
+INFO    2021-09-30T19:54:04:786   5656; link AUT Transformed to opening successfully.
+INFO    2021-09-30T19:54:04:786   5656; link AUT Transformed to opened successfully.
+INFO    2021-09-30T19:54:04:786   5656; link AUT initialize finished.
+INFO    2021-09-30T19:54:04:786   5656; link AUT create started.
+INFO    2021-09-30T19:54:04:786   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] Instance created.
+INFO    2021-09-30T19:54:04:786   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] initialization started.
+INFO    2021-09-30T19:54:04:786   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] initialization succeed.
+INFO    2021-09-30T19:54:04:786   5656; link AUT create finished.
+INFO    2021-09-30T19:54:04:786   5656; [rtm-link0][2a] send login request(seq 144, elapse 325) to server 128.1.105.154:9120, instanceId: 11990353254858232618
+INFO    2021-09-30T19:54:04:786   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][FDB50203951E4FEB8356E669A48A6FF9] begin-send started.
+INFO    2021-09-30T19:54:04:786   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][FDB50203951E4FEB8356E669A48A6FF9] begin-send finished.
+INFO    2021-09-30T19:54:04:786   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] begin-open started.
+INFO    2021-09-30T19:54:04:786   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] Transformed to opening successfully.
+INFO    2021-09-30T19:54:04:786   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] observer started.
+INFO    2021-09-30T19:54:04:786   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] network-transport-connect started.
+INFO    2021-09-30T19:54:04:787   5656; create session builder 00000272ADDCDEE0
+INFO    2021-09-30T19:54:04:787   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] network-transport-connect succeed.
+INFO    2021-09-30T19:54:04:787   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] begin-open finished.
+INFO    2021-09-30T19:54:04:787   5656; link AUT Instance destroyed in state opened.
+INFO    2021-09-30T19:54:04:787   5656; [rtm-ls][2a] server: 128.1.105.154:9131 is in use, ignored
+INFO    2021-09-30T19:54:04:787   5656; [rtm-ls][2a] env 1 selected: 122.10.255.160:9131, ticket: MA********************************************************************************************K8
+INFO    2021-09-30T19:54:04:787   5656; [rtm-ctrl][2a] link 1 login with server: 122.10.255.160:9131
+INFO    2021-09-30T19:54:04:787   5656; [rtm-link1][2a] login available times: 2 for server:122.10.255.160:9131
+INFO    2021-09-30T19:54:04:787   5656; link TLS Instance created.
+INFO    2021-09-30T19:54:04:787   5656; link TLS initialize started.
+INFO    2021-09-30T19:54:04:787   5656; link TLS Transformed to opening successfully.
+INFO    2021-09-30T19:54:04:787   5656; link TLS Transformed to opened successfully.
+INFO    2021-09-30T19:54:04:787   5656; link TLS initialize finished.
+INFO    2021-09-30T19:54:04:787   5656; link TLS create started.
+INFO    2021-09-30T19:54:04:787   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] Instance created.
+INFO    2021-09-30T19:54:04:787   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] initialization started.
+INFO    2021-09-30T19:54:04:787   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] initialization succeed.
+INFO    2021-09-30T19:54:04:787   5656; link TLS create finished.
+INFO    2021-09-30T19:54:04:787   5656; [rtm-link1][2a] send login request(seq 145, elapse 325) to server 122.10.255.160:9137, instanceId: 11990353254858232618
+INFO    2021-09-30T19:54:04:787   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][150108D85AAD4E13AD3E687066355762] begin-send started.
+INFO    2021-09-30T19:54:04:787   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][150108D85AAD4E13AD3E687066355762] begin-send finished.
+INFO    2021-09-30T19:54:04:787   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] begin-open started.
+INFO    2021-09-30T19:54:04:787   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] Transformed to opening successfully.
+INFO    2021-09-30T19:54:04:787   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] observer started.
+INFO    2021-09-30T19:54:04:787   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] network-transport-connect started.
+INFO    2021-09-30T19:54:04:787   5656; connecting to 122.10.255.160:9137 handle ad686a90, 22932
+INFO    2021-09-30T19:54:04:787   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] network-transport-connect succeed.
+INFO    2021-09-30T19:54:04:787   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] begin-open finished.
+INFO    2021-09-30T19:54:04:787   5656; link TLS Instance destroyed in state opened.
+INFO    2021-09-30T19:54:04:787   5656; recognized uri 70 from server 52.172.40.152:8443
+INFO    2021-09-30T19:54:04:787   5656; [ap/t] **responsed from 52.172.40.152:8443, (128).
+INFO    2021-09-30T19:54:04:787   5656; [rtm-ls][2a] update server list(size: 3), area: SEA
+INFO    2021-09-30T19:54:04:787   5656; [rtm-ls][2a] existing server, no need to add, IP : 164.52.122.50:9131.
+INFO    2021-09-30T19:54:04:787   5656; [rtm-ls][2a] existing server, no need to add, IP : 164.52.122.50:9131.
+INFO    2021-09-30T19:54:04:787   5656; [rtm-ls][2a] existing server, no need to add, IP : 122.10.255.160:9131.
+INFO    2021-09-30T19:54:04:787   5656; [rtm-ls][2a] existing server, no need to add, IP : 122.10.255.160:9131.
+INFO    2021-09-30T19:54:04:787   5656; [rtm-ls][2a] existing server, no need to add, IP : 128.1.105.154:9131.
+INFO    2021-09-30T19:54:04:787   5656; [rtm-ls][2a] existing server, no need to add, IP : 128.1.105.154:9131.
+INFO    2021-09-30T19:54:04:787   5656; [rtm-ctrl][2a] Re-initializing links, and link count limit, 2, reached. The re-initialing request is ignored.
+INFO    2021-09-30T19:54:04:787   5656; [rtm-ctrl][2a] Link not logged in, yet. And link 0, addr: 128.1.105.154:9120 has been used, and already logging status. The login request is ignored.
+INFO    2021-09-30T19:54:04:787   5656; [rtm-ctrl][2a] Link not logged in, yet. And link 1, addr: 122.10.255.160:9137 has been used, and already logging status. The login request is ignored.
+INFO    2021-09-30T19:54:04:787   5656; create dangling client connection 000002725AE0EA80
+INFO    2021-09-30T19:54:04:790   5656; [remote:128.1.105.154:9120] start 0th connect, send client hello 21642|syn, tags: SNI :3132382d312d...(27), PDMD:, CPTO:4e4f4e432000...(129), CID: 24717536794235
+INFO    2021-09-30T19:54:04:790   5656; socket 25400 52.172.40.152:8443 error 0x11, socket error: 0
+INFO    2021-09-30T19:54:04:790   5656; recognized uri 70 from server 3.109.63.250:8443
+INFO    2021-09-30T19:54:04:790   5656; [ap/u] **responsed from 3.109.63.250:8443, (128).
+INFO    2021-09-30T19:54:04:790   5656; [ap] report success done, 3.109.63.250:8443 (AUT crypto) removed from 000002709A02A920.
+INFO    2021-09-30T19:54:04:790   5656; [rtm-ls][2a] update server list(size: 3), area: SEA
+INFO    2021-09-30T19:54:04:790   5656; [rtm-ls][2a] add new server: env 0, all size: 3, avail size: 2, IP : 128.1.105.152:9130.
+INFO    2021-09-30T19:54:04:790   5656; [rtm-ls][2a] add new server: env 1, all size: 3, avail size: 2, IP : 128.1.105.152:9130.
+INFO    2021-09-30T19:54:04:790   5656; [rtm-ls][2a] existing server, no need to add, IP : 122.10.255.160:9130.
+INFO    2021-09-30T19:54:04:790   5656; [rtm-ls][2a] existing server, no need to add, IP : 122.10.255.160:9130.
+INFO    2021-09-30T19:54:04:790   5656; [rtm-ls][2a] existing server, no need to add, IP : 164.52.122.50:9130.
+INFO    2021-09-30T19:54:04:790   5656; [rtm-ls][2a] existing server, no need to add, IP : 164.52.122.50:9130.
+INFO    2021-09-30T19:54:04:790   5656; [rtm-ctrl][2a] Re-initializing links, and link count limit, 2, reached. The re-initialing request is ignored.
+INFO    2021-09-30T19:54:04:790   5656; [rtm-ctrl][2a] Link not logged in, yet. And link 0, addr: 128.1.105.154:9120 has been used, and already logging status. The login request is ignored.
+INFO    2021-09-30T19:54:04:790   5656; [rtm-ctrl][2a] Link not logged in, yet. And link 1, addr: 122.10.255.160:9137 has been used, and already logging status. The login request is ignored.
+INFO    2021-09-30T19:54:04:790   5656; recognized uri 70 from server 3.109.63.250:8443
+INFO    2021-09-30T19:54:04:790   5656; [ap/u] **responsed from 3.109.63.250:8443, (128).
+INFO    2021-09-30T19:54:04:790   5656; [rtm-ls][2a] update server list(size: 3), area: SEA
+INFO    2021-09-30T19:54:04:790   5656; [rtm-ls][2a] existing server, no need to add, IP : 128.1.105.152:9131.
+INFO    2021-09-30T19:54:04:790   5656; [rtm-ls][2a] existing server, no need to add, IP : 128.1.105.152:9131.
+INFO    2021-09-30T19:54:04:790   5656; [rtm-ls][2a] existing server, no need to add, IP : 122.10.255.160:9131.
+INFO    2021-09-30T19:54:04:790   5656; [rtm-ls][2a] existing server, no need to add, IP : 122.10.255.160:9131.
+INFO    2021-09-30T19:54:04:790   5656; [rtm-ls][2a] existing server, no need to add, IP : 164.52.122.50:9131.
+INFO    2021-09-30T19:54:04:790   5656; [rtm-ls][2a] existing server, no need to add, IP : 164.52.122.50:9131.
+INFO    2021-09-30T19:54:04:790   5656; [rtm-ctrl][2a] Re-initializing links, and link count limit, 2, reached. The re-initialing request is ignored.
+INFO    2021-09-30T19:54:04:790   5656; [rtm-ctrl][2a] Link not logged in, yet. And link 0, addr: 128.1.105.154:9120 has been used, and already logging status. The login request is ignored.
+INFO    2021-09-30T19:54:04:790   5656; [rtm-ctrl][2a] Link not logged in, yet. And link 1, addr: 122.10.255.160:9137 has been used, and already logging status. The login request is ignored.
+INFO    2021-09-30T19:54:04:867   5656; [remote:128.1.105.154:9120] receive server hello piece id: 0, 1/8, not complete
+INFO    2021-09-30T19:54:04:867   5656; [remote:128.1.105.154:9120] receive server hello piece id: 1, 2/8, not complete
+INFO    2021-09-30T19:54:04:867   5656; [remote:128.1.105.154:9120] receive server hello piece id: 2, 3/8, not complete
+INFO    2021-09-30T19:54:04:868   5656; [remote:128.1.105.154:9120] receive server hello piece id: 3, 4/8, complete
+INFO    2021-09-30T19:54:04:870   5656; [remote:128.1.105.154:9120] create connection 000002736BA19D10, self initial seq: 21643, initial rtt: 80ms, git tag: Unknown, perspective: Perspective::kClient, cc: BBRv1, pacing: enable
+INFO    2021-09-30T19:54:04:870   5656; [remote:128.1.105.154:9120] create session 000002736B7AE1E0
+INFO    2021-09-30T19:54:04:870   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] on-connect-connected started.
+INFO    2021-09-30T19:54:04:870   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] open started.
+INFO    2021-09-30T19:54:04:870   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] Transformed to opened successfully.
+INFO    2021-09-30T19:54:04:870   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] internal-on-opened started.
+INFO    2021-09-30T19:54:04:870   5656; [rtm-link0][2a] tcp connected with 000002733740F850 : 128.1.105.154:9120
+INFO    2021-09-30T19:54:04:870   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] internal-on-opened succeed.
+INFO    2021-09-30T19:54:04:870   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] open finished.
+INFO    2021-09-30T19:54:04:870   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] on-connect-connected succeed.
+INFO    2021-09-30T19:54:04:870   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][FDB50203951E4FEB8356E669A48A6FF9] begin-send started.
+INFO    2021-09-30T19:54:04:870   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][FDB50203951E4FEB8356E669A48A6FF9] sending 134 bytes.
+INFO    2021-09-30T19:54:04:870   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][FDB50203951E4FEB8356E669A48A6FF9] begin-send succeed.
+INFO    2021-09-30T19:54:04:870   5656; destroy dangling client connection 000002725AE0EA80
+INFO    2021-09-30T19:54:04:918   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] on-connect-connected started.
+INFO    2021-09-30T19:54:04:918   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] open started.
+INFO    2021-09-30T19:54:04:918   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] Transformed to opened successfully.
+INFO    2021-09-30T19:54:04:918   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] internal-on-opened started.
+INFO    2021-09-30T19:54:04:918   5656; [rtm-link1][2a] tcp connected with 000002733740F9A0 : 122.10.255.160:9137
+INFO    2021-09-30T19:54:04:918   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] internal-on-opened succeed.
+INFO    2021-09-30T19:54:04:918   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] open finished.
+INFO    2021-09-30T19:54:04:918   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] on-connect-connected succeed.
+INFO    2021-09-30T19:54:04:918   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][150108D85AAD4E13AD3E687066355762] begin-send started.
+INFO    2021-09-30T19:54:04:918   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][150108D85AAD4E13AD3E687066355762] sending 134 bytes.
+INFO    2021-09-30T19:54:04:918   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][150108D85AAD4E13AD3E687066355762] begin-send succeed.
+INFO    2021-09-30T19:54:04:949   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][D9E96433413D4C5298D38F1AE209FAAB] on-data started.
+INFO    2021-09-30T19:54:04:949   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] internal-on-message-received started.
+INFO    2021-09-30T19:54:04:949   5656; Dispatching URI 12 from server 128.1.105.154:9120 (user agent: 0) to the handler.
+INFO    2021-09-30T19:54:04:949   5656; [rtm-link0][2a] **login response (seq 144, code 0,  elapse 487) from 128.1.105.154:9120, and current dest server 128.1.105.154:9120
+INFO    2021-09-30T19:54:04:949   5656; [rtm-link0][2a] link event err code: 0
+INFO    2021-09-30T19:54:04:949   5656; no on-going request, no need to sync
+INFO    2021-09-30T19:54:04:949   5656; [rtm-chat][2a] login success
+INFO    2021-09-30T19:54:04:949   5656; [rtm-chat][2a] connection state change, from 2 to: 3, reason: 2
+INFO    2021-09-30T19:54:04:949   5656; [rtm-note] connection state change: 3, reason: 2
+INFO    2021-09-30T19:54:04:949   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] internal-on-message-received succeed.
+INFO    2021-09-30T19:54:04:949   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][D9E96433413D4C5298D38F1AE209FAAB] on-data succeed.
+INFO    2021-09-30T19:54:04:949   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][D9E96433413D4C5298D38F1AE209FAAB] all 24 bytes handled.
+INFO    2021-09-30T19:54:04:949  24852; [event-handler] onConnectionStateChanged called, state: 3, reason: 2
+INFO    2021-09-30T19:54:04:980   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][4313230EC45B4152A55202911EA3F78C] on-data started.
+INFO    2021-09-30T19:54:04:980   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] internal-on-message-received started.
+INFO    2021-09-30T19:54:04:980   5656; Dispatching URI 12 from server 122.10.255.160:9137 (user agent: 0) to the handler.
+INFO    2021-09-30T19:54:04:980   5656; [rtm-link1][2a] **login response (seq 145, code 0,  elapse 519) from 122.10.255.160:9137, and current dest server 122.10.255.160:9137
+INFO    2021-09-30T19:54:04:980   5656; [rtm-link1][2a] link event err code: 0
+INFO    2021-09-30T19:54:04:981   5656; no on-going request, no need to sync
+INFO    2021-09-30T19:54:04:981   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] internal-on-message-received succeed.
+INFO    2021-09-30T19:54:04:981   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][4313230EC45B4152A55202911EA3F78C] on-data succeed.
+INFO    2021-09-30T19:54:04:981   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][4313230EC45B4152A55202911EA3F78C] all 24 bytes handled.
+INFO    2021-09-30T19:54:05:017   5656; [remote:3.109.63.250:8443] on connection close received, reason: 0, detail: 
+INFO    2021-09-30T19:54:05:017   5656; [remote:3.109.63.250:8443] start time wait, duration: 2000 ms
+INFO    2021-09-30T19:54:05:017   5656; [ap] aut socket error with 3.109.63.250:8443
+INFO    2021-09-30T19:54:05:017   5656; [remote:3.109.63.250:8443] destroy session 000002736B7AEC60
+INFO    2021-09-30T19:54:05:017   5656; [remote:3.109.63.250:8443] destroy connection 000002736BA20190
+INFO    2021-09-30T19:54:05:949   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][8A4F80E5CD6B4038BB1C9E0A7D93C5AA] begin-send started.
+INFO    2021-09-30T19:54:05:949   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][8A4F80E5CD6B4038BB1C9E0A7D93C5AA] sending 22 bytes.
+INFO    2021-09-30T19:54:05:949   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][8A4F80E5CD6B4038BB1C9E0A7D93C5AA] begin-send succeed.
+INFO    2021-09-30T19:54:05:981   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][80481FD3B1724692B03672949B2DADF6] begin-send started.
+INFO    2021-09-30T19:54:05:981   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][80481FD3B1724692B03672949B2DADF6] sending 22 bytes.
+INFO    2021-09-30T19:54:05:981   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][80481FD3B1724692B03672949B2DADF6] begin-send succeed.
+INFO    2021-09-30T19:54:06:025   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][F808B336EED64D49AE9EEC101B14A5DA] on-data started.
+INFO    2021-09-30T19:54:06:025   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] internal-on-message-received started.
+INFO    2021-09-30T19:54:06:025   5656; Dispatching URI 2 from server 128.1.105.154:9120 (user agent: 0) to the handler.
+INFO    2021-09-30T19:54:06:025   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] internal-on-message-received succeed.
+INFO    2021-09-30T19:54:06:025   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][F808B336EED64D49AE9EEC101B14A5DA] on-data succeed.
+INFO    2021-09-30T19:54:06:025   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][F808B336EED64D49AE9EEC101B14A5DA] all 22 bytes handled.
+INFO    2021-09-30T19:54:06:045   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][11B774A075094353BD3265175450A147] on-data started.
+INFO    2021-09-30T19:54:06:045   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] internal-on-message-received started.
+INFO    2021-09-30T19:54:06:045   5656; Dispatching URI 2 from server 122.10.255.160:9137 (user agent: 0) to the handler.
+INFO    2021-09-30T19:54:06:045   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] internal-on-message-received succeed.
+INFO    2021-09-30T19:54:06:045   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][11B774A075094353BD3265175450A147] on-data succeed.
+INFO    2021-09-30T19:54:06:045   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][11B774A075094353BD3265175450A147] all 22 bytes handled.
+INFO    2021-09-30T19:54:06:590  18208; [remote:45.40.48.115:8130] path MTU to remote increased: 1280 --> 1365
+INFO    2021-09-30T19:54:06:590  18208; [remote:45.40.48.115:8130] on max stream frame length changed from 1204 to 1339
+INFO    2021-09-30T19:54:07:949   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][522DB22C9EB34CA583BE766AA11A526E] begin-send started.
+INFO    2021-09-30T19:54:07:949   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][522DB22C9EB34CA583BE766AA11A526E] sending 22 bytes.
+INFO    2021-09-30T19:54:07:949   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][522DB22C9EB34CA583BE766AA11A526E] begin-send succeed.
+INFO    2021-09-30T19:54:07:981   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][9B4470F4B7524A878937F2AFB466A304] begin-send started.
+INFO    2021-09-30T19:54:07:981   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][9B4470F4B7524A878937F2AFB466A304] sending 22 bytes.
+INFO    2021-09-30T19:54:07:981   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][9B4470F4B7524A878937F2AFB466A304] begin-send succeed.
+INFO    2021-09-30T19:54:08:026   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][EEFD3106CC3846F290330C805292397E] on-data started.
+INFO    2021-09-30T19:54:08:026   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] internal-on-message-received started.
+INFO    2021-09-30T19:54:08:026   5656; Dispatching URI 2 from server 128.1.105.154:9120 (user agent: 0) to the handler.
+INFO    2021-09-30T19:54:08:026   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] internal-on-message-received succeed.
+INFO    2021-09-30T19:54:08:026   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][EEFD3106CC3846F290330C805292397E] on-data succeed.
+INFO    2021-09-30T19:54:08:026   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][EEFD3106CC3846F290330C805292397E] all 22 bytes handled.
+INFO    2021-09-30T19:54:08:045   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][983C15A734A94354AC6045A07D8D514B] on-data started.
+INFO    2021-09-30T19:54:08:045   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] internal-on-message-received started.
+INFO    2021-09-30T19:54:08:045   5656; Dispatching URI 2 from server 122.10.255.160:9137 (user agent: 0) to the handler.
+INFO    2021-09-30T19:54:08:045   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] internal-on-message-received succeed.
+INFO    2021-09-30T19:54:08:045   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][983C15A734A94354AC6045A07D8D514B] on-data succeed.
+INFO    2021-09-30T19:54:08:045   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][983C15A734A94354AC6045A07D8D514B] all 22 bytes handled.
+INFO    2021-09-30T19:54:08:950   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][C07FB3E7D1C54A1AABEB18296F90CCAE] begin-send started.
+INFO    2021-09-30T19:54:08:950   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][C07FB3E7D1C54A1AABEB18296F90CCAE] sending 22 bytes.
+INFO    2021-09-30T19:54:08:950   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][C07FB3E7D1C54A1AABEB18296F90CCAE] begin-send succeed.
+INFO    2021-09-30T19:54:08:981   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][B080911239104E268FCCFF688CDC5AA3] begin-send started.
+INFO    2021-09-30T19:54:08:981   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][B080911239104E268FCCFF688CDC5AA3] sending 22 bytes.
+INFO    2021-09-30T19:54:08:981   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][B080911239104E268FCCFF688CDC5AA3] begin-send succeed.
+INFO    2021-09-30T19:54:09:034   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][6E00BE6201E94E479FEB147DD3817088] on-data started.
+INFO    2021-09-30T19:54:09:034   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] internal-on-message-received started.
+INFO    2021-09-30T19:54:09:034   5656; Dispatching URI 2 from server 128.1.105.154:9120 (user agent: 0) to the handler.
+INFO    2021-09-30T19:54:09:034   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] internal-on-message-received succeed.
+INFO    2021-09-30T19:54:09:034   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][6E00BE6201E94E479FEB147DD3817088] on-data succeed.
+INFO    2021-09-30T19:54:09:034   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][6E00BE6201E94E479FEB147DD3817088] all 22 bytes handled.
+INFO    2021-09-30T19:54:09:046   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][A5BEBB7E09724B998A34EF6B257A8130] on-data started.
+INFO    2021-09-30T19:54:09:046   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] internal-on-message-received started.
+INFO    2021-09-30T19:54:09:046   5656; Dispatching URI 2 from server 122.10.255.160:9137 (user agent: 0) to the handler.
+INFO    2021-09-30T19:54:09:046   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] internal-on-message-received succeed.
+INFO    2021-09-30T19:54:09:046   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][A5BEBB7E09724B998A34EF6B257A8130] on-data succeed.
+INFO    2021-09-30T19:54:09:046   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][A5BEBB7E09724B998A34EF6B257A8130] all 22 bytes handled.
+INFO    2021-09-30T19:54:09:463   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][764F4249FE4B4B8191F467516D7A4800] begin-send started.
+INFO    2021-09-30T19:54:09:463   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][764F4249FE4B4B8191F467516D7A4800] sending 21 bytes.
+INFO    2021-09-30T19:54:09:463   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][764F4249FE4B4B8191F467516D7A4800] begin-send succeed.
+INFO    2021-09-30T19:54:09:463   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][F46FA8CB469C4B3994B038BFC87A7FAC] begin-send started.
+INFO    2021-09-30T19:54:09:463   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][F46FA8CB469C4B3994B038BFC87A7FAC] sending 21 bytes.
+INFO    2021-09-30T19:54:09:463   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][F46FA8CB469C4B3994B038BFC87A7FAC] begin-send succeed.
+INFO    2021-09-30T19:54:09:463   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][72CCE2136CAC45E2AE42CF569F160D75] begin-send started.
+INFO    2021-09-30T19:54:09:463   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][72CCE2136CAC45E2AE42CF569F160D75] sending 23 bytes.
+INFO    2021-09-30T19:54:09:463   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][72CCE2136CAC45E2AE42CF569F160D75] begin-send succeed.
+INFO    2021-09-30T19:54:09:463   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][ED4F300EE8B0419A9FE4BC9B1DD0FEA6] begin-send started.
+INFO    2021-09-30T19:54:09:463   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][ED4F300EE8B0419A9FE4BC9B1DD0FEA6] sending 23 bytes.
+INFO    2021-09-30T19:54:09:463   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][ED4F300EE8B0419A9FE4BC9B1DD0FEA6] begin-send succeed.
+INFO    2021-09-30T19:54:09:562   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][353F0092E93D46DA99666CFE4EDABC87] on-data started.
+INFO    2021-09-30T19:54:09:562   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] internal-on-message-received started.
+INFO    2021-09-30T19:54:09:562   5656; Dispatching URI 42 from server 122.10.255.160:9137 (user agent: 0) to the handler.
+INFO    2021-09-30T19:54:09:562   5656; [rtm-link1][2a] get 1 peersOnlineStatus, seq: 143
+INFO    2021-09-30T19:54:09:562   5656; [rtm-note] onQueryPeersOnlineStatusResult, reqId 143 , err code 0
+INFO    2021-09-30T19:54:09:562   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] internal-on-message-received succeed.
+INFO    2021-09-30T19:54:09:562   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][353F0092E93D46DA99666CFE4EDABC87] on-data succeed.
+INFO    2021-09-30T19:54:09:562  24852; [event-handler] onPeersOnlineStatusChanged called, isQuerySubscriptionRequest: 0, isReloginSubscriptionRequest:0
+INFO    2021-09-30T19:54:09:562   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][353F0092E93D46DA99666CFE4EDABC87] all 27 bytes handled.
+INFO    2021-09-30T19:54:09:562  24852; [event-handler] onQueryPeersOnlineStatusResult called, req: 143, count: 1, errorCode: 0
+INFO    2021-09-30T19:54:09:578   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][50DE716502B34444AB02A79382F1251A] on-data started.
+INFO    2021-09-30T19:54:09:578   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] internal-on-message-received started.
+INFO    2021-09-30T19:54:09:578   5656; Dispatching URI 42 from server 128.1.105.154:9120 (user agent: 0) to the handler.
+INFO    2021-09-30T19:54:09:578   5656; [rtm-link0][2a] get 1 peersOnlineStatus, seq: 143
+INFO    2021-09-30T19:54:09:578   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] internal-on-message-received succeed.
+INFO    2021-09-30T19:54:09:578   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][50DE716502B34444AB02A79382F1251A] on-data succeed.
+INFO    2021-09-30T19:54:09:578   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][50DE716502B34444AB02A79382F1251A] all 27 bytes handled.
+INFO    2021-09-30T19:54:09:579   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][B026FAF4F42E40C1B91C63E302A4CD12] on-data started.
+INFO    2021-09-30T19:54:09:579   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] internal-on-message-received started.
+INFO    2021-09-30T19:54:09:579   5656; Dispatching URI 42 from server 128.1.105.154:9120 (user agent: 0) to the handler.
+INFO    2021-09-30T19:54:09:579   5656; [rtm-link0][2a] get 1 peersOnlineStatus, seq: 142
+INFO    2021-09-30T19:54:09:579   5656; [rtm-note] onQueryPeersOnlineStatusResult, reqId 142 , err code 0
+INFO    2021-09-30T19:54:09:579   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] internal-on-message-received succeed.
+INFO    2021-09-30T19:54:09:579   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][B026FAF4F42E40C1B91C63E302A4CD12] on-data succeed.
+INFO    2021-09-30T19:54:09:579  24852; [event-handler] onPeersOnlineStatusChanged called, isQuerySubscriptionRequest: 0, isReloginSubscriptionRequest:0
+INFO    2021-09-30T19:54:09:579   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][B026FAF4F42E40C1B91C63E302A4CD12] all 25 bytes handled.
+INFO    2021-09-30T19:54:09:579  24852; [event-handler] onQueryPeersOnlineStatusResult called, req: 142, count: 1, errorCode: 0
+INFO    2021-09-30T19:54:09:681   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][3901879CA0744B00ADC51CCFB31A771B] on-data started.
+INFO    2021-09-30T19:54:09:681   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] internal-on-message-received started.
+INFO    2021-09-30T19:54:09:681   5656; Dispatching URI 42 from server 122.10.255.160:9137 (user agent: 0) to the handler.
+INFO    2021-09-30T19:54:09:681   5656; [rtm-link1][2a] get 1 peersOnlineStatus, seq: 142
+INFO    2021-09-30T19:54:09:681   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] internal-on-message-received succeed.
+INFO    2021-09-30T19:54:09:681   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][3901879CA0744B00ADC51CCFB31A771B] on-data succeed.
+INFO    2021-09-30T19:54:09:681   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][3901879CA0744B00ADC51CCFB31A771B] all 25 bytes handled.
+INFO    2021-09-30T19:54:10:949   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][73A56F65A04644CE9A26B97F4C27EC19] begin-send started.
+INFO    2021-09-30T19:54:10:949   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][73A56F65A04644CE9A26B97F4C27EC19] sending 22 bytes.
+INFO    2021-09-30T19:54:10:949   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][73A56F65A04644CE9A26B97F4C27EC19] begin-send succeed.
+INFO    2021-09-30T19:54:10:966   5656; [remote:128.1.105.154:9120] path MTU to remote increased: 1280 --> 1365
+INFO    2021-09-30T19:54:10:966   5656; [remote:128.1.105.154:9120] on max stream frame length changed from 1204 to 1339
+INFO    2021-09-30T19:54:10:981   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][7163170D3DD94585B9C38557D9784CED] begin-send started.
+INFO    2021-09-30T19:54:10:981   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][7163170D3DD94585B9C38557D9784CED] sending 22 bytes.
+INFO    2021-09-30T19:54:10:981   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][7163170D3DD94585B9C38557D9784CED] begin-send succeed.
+INFO    2021-09-30T19:54:11:026   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][D876177F39BD48D48D51FDF01FFE22D6] on-data started.
+INFO    2021-09-30T19:54:11:026   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] internal-on-message-received started.
+INFO    2021-09-30T19:54:11:026   5656; Dispatching URI 2 from server 128.1.105.154:9120 (user agent: 0) to the handler.
+INFO    2021-09-30T19:54:11:026   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] internal-on-message-received succeed.
+INFO    2021-09-30T19:54:11:026   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][D876177F39BD48D48D51FDF01FFE22D6] on-data succeed.
+INFO    2021-09-30T19:54:11:026   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][D876177F39BD48D48D51FDF01FFE22D6] all 22 bytes handled.
+INFO    2021-09-30T19:54:11:043   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][FFF1E538A1094F5798A3DF0413EA580C] on-data started.
+INFO    2021-09-30T19:54:11:043   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] internal-on-message-received started.
+INFO    2021-09-30T19:54:11:043   5656; Dispatching URI 2 from server 122.10.255.160:9137 (user agent: 0) to the handler.
+INFO    2021-09-30T19:54:11:043   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] internal-on-message-received succeed.
+INFO    2021-09-30T19:54:11:043   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][FFF1E538A1094F5798A3DF0413EA580C] on-data succeed.
+INFO    2021-09-30T19:54:11:043   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][FFF1E538A1094F5798A3DF0413EA580C] all 22 bytes handled.
+INFO    2021-09-30T19:54:11:508   6488; [rtm-API] rtm stop service, sync: 1
+INFO    2021-09-30T19:54:11:508   5656; [rtm-link0][2a] send logout request * 3
+INFO    2021-09-30T19:54:11:508   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][FDE4901DB22443399B85A22F2ED8924C] begin-send started.
+INFO    2021-09-30T19:54:11:508   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][FDE4901DB22443399B85A22F2ED8924C] sending 6 bytes (high priority).
+INFO    2021-09-30T19:54:11:508   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D][FDE4901DB22443399B85A22F2ED8924C] begin-send succeed.
+INFO    2021-09-30T19:54:11:508   5656; [rtm-link1][2a] send logout request * 3
+INFO    2021-09-30T19:54:11:508   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][4448B88C90854FFB81361D0CE9C4EDD8] begin-send started.
+INFO    2021-09-30T19:54:11:508   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][4448B88C90854FFB81361D0CE9C4EDD8] sending 6 bytes (high priority).
+INFO    2021-09-30T19:54:11:508   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][4448B88C90854FFB81361D0CE9C4EDD8] begin-send succeed.
+INFO    2021-09-30T19:54:11:571   5656; socket 22932 122.10.255.160:9137 error 0x11, socket error: 0
+INFO    2021-09-30T19:54:11:585   5656; [remote:128.1.105.154:9120] on connection close received, reason: 0, detail: 
+INFO    2021-09-30T19:54:11:585   5656; [remote:128.1.105.154:9120] start time wait, duration: 2000 ms
+INFO    2021-09-30T19:54:11:585   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] on-error started.
+INFO    2021-09-30T19:54:11:585   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] fault started.
+INFO    2021-09-30T19:54:11:585   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] Transformed to faulted successfully.
+INFO    2021-09-30T19:54:11:585   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] internal-on-faulted started.
+INFO    2021-09-30T19:54:11:585   5656; [rtm-link0][2a] tcp error with 000002733740F850 ignored during logging out
+INFO    2021-09-30T19:54:11:585   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] begin-abort started.
+INFO    2021-09-30T19:54:11:585   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] Transformed to closing (abort) successfully from faulted.
+INFO    2021-09-30T19:54:11:585   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] network-transport-reset started.
+INFO    2021-09-30T19:54:11:585   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] network-transport-reset succeed.
+INFO    2021-09-30T19:54:11:585   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] begin-abort finished.
+INFO    2021-09-30T19:54:11:585   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] internal-on-faulted succeed.
+INFO    2021-09-30T19:54:11:585   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] fault finished.
+INFO    2021-09-30T19:54:11:585   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] begin-abort started.
+INFO    2021-09-30T19:54:11:585   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] Transformed to closing (abort) successfully from closing.
+INFO    2021-09-30T19:54:11:585   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] already in closing state. Cleanup skipped.
+INFO    2021-09-30T19:54:11:585   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] begin-abort finished.
+INFO    2021-09-30T19:54:11:585   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] on-error finished.
+INFO    2021-09-30T19:54:11:585   5656; [remote:128.1.105.154:9120] destroy session 000002736B7AE1E0
+INFO    2021-09-30T19:54:11:585   5656; [remote:128.1.105.154:9120] destroy connection 000002736BA19D10
+INFO    2021-09-30T19:54:12:009   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] observer finished.
+INFO    2021-09-30T19:54:12:009   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] Channel destroyed. The underlying instance might be destroyed later.
+INFO    2021-09-30T19:54:12:009   5656; [rtm-link0][2a][128.1.105.154:9120][NT_AUT][E323B713BF8E4AEF8F27B45E728F849D] Instance destroyed in state closing.
+INFO    2021-09-30T19:54:12:009   5656; [rtm-link1][2a] send logout request * 3
+INFO    2021-09-30T19:54:12:009   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][43621956077145FB8FE373498A3F707D] begin-send started.
+INFO    2021-09-30T19:54:12:009   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][43621956077145FB8FE373498A3F707D] sending 6 bytes (high priority).
+WARN    2021-09-30T19:54:12:009   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41][43621956077145FB8FE373498A3F707D] begin-send failed: general error: -14
+INFO    2021-09-30T19:54:12:009   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] observer finished.
+INFO    2021-09-30T19:54:12:009   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] Channel destroyed. The underlying instance might be destroyed later.
+INFO    2021-09-30T19:54:12:009   5656; [rtm-link1][2a][122.10.255.160:9137][NT_TLS][DC27E10D33F44C4ABC09B4EE7B21FE41] Instance destroyed in state opened.
+INFO    2021-09-30T19:54:12:009   6488; [rtm-note] stop async handler
+INFO    2021-09-30T19:54:12:010   6488; async task worker thread exited gracefully
+INFO    2021-09-30T19:54:12:010   6488; rtm service release, count:0
+
+INFO    2021-09-30T19:54:12:010   6488; agora service release
+
+INFO    2021-09-30T19:54:12:010  18208; [rs] **report stats: seq: 22, report list size 2, tx/rx: 3625/960, cache size: 0
+INFO    2021-09-30T19:54:12:010  18208; [rs] report server1: 45.40.48.115:8130
+INFO    2021-09-30T19:54:12:010  18208; [remote:45.40.48.115:8130] destroy session 00000273355E5820
+INFO    2021-09-30T19:54:12:011  18208; [remote:45.40.48.115:8130] destroy connection 000002736BA1A9A0
+INFO    2021-09-30T19:54:12:011  18208; Agora Service Worker Thread stopped: 00000272ABEA37D0
+INFO    2021-09-30T19:54:12:020   6488; CacheManager: save cache to storage elapsed 8
+INFO    2021-09-30T19:54:12:021   6488; CacheManager: save report cache to storage failed
+INFO    2021-09-30T19:54:12:021   5656; Agora Service Worker Thread stopped: 00000272ABEA3610
