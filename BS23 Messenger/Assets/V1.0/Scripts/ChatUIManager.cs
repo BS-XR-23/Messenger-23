@@ -155,7 +155,7 @@ public class ChatUIManager : MonoBehaviour
         GameObject prefabToUse = (message.messageType == ChatMessage.MessageType.UserMessage) ? senderPrefab : receiverPrefab;
         prefabToUse.transform.GetChild(0).GetComponentInChildren<TextMeshProUGUI>().text = message.text;
         GameObject.Instantiate(prefabToUse, conversationContentPanel);
-        StartCoroutine(ForceScrollDown(comScroll.GetComponent<ScrollRect>(),1,0,0.5f));
+        StartCoroutine(ForceScrollDown(comScroll.GetComponent<ScrollRect>(),0,0,0.5f));
         
         Canvas.ForceUpdateCanvases();
     }
