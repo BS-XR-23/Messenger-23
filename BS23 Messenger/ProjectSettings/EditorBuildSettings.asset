@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/V1.0/Scenes/Desktop/Messenger.unity
     guid: e7a072995df04804889961e03fb3d863
-  - enabled: 1
+  - enabled: 0
     path: Assets/V1.0/Scenes/Mobile/Messenger_Mobile.unity
     guid: 2760528a8a2540049ba3624a307ad98f
+  - enabled: 0
+    path: Assets/CustomKeyboardLetC/Scenes/SampleScene.unity
+    guid: 458b691f0bcd3413f80837e7608d69fa
   m_configObjects: {}
