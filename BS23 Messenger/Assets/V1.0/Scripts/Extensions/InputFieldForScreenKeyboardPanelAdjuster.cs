@@ -60,18 +60,22 @@ public class InputFieldForScreenKeyboardPanelAdjuster : MonoBehaviour, IPointerD
 
     public float GetKeyboardHeightRatio()
     {
-        return 0.5f;
+        return 0.25f;
     }
 
     void DelayedReset()
     {
         panelRectTrans.offsetMin = panelOffsetMinOriginal;
     }
-
+    void OnDisable()
+    {
+        DelayedReset();
+        currentKeyboardHeightRatio = 0f;
+        TextKeyboard.instance.isActive = false;
+    }
     public void OnPointerDown(PointerEventData eventData)
     {
         KeyboardDown();
-        
     }
     void GetAllTextFromInputFields()
     {
@@ -79,28 +83,21 @@ public class InputFieldForScreenKeyboardPanelAdjuster : MonoBehaviour, IPointerD
         {
             inputField.onSelect.AddListener((string input) =>
             {
-
                 TextKeyboard.instance.isActive = true;
                 TextKeyboard.instance.activeInputField = inputField;
                 TextKeyboard.instance.activeInputField.IsActive();
-                
+
                 TextKeyboard.instance.activeInputField.ActivateInputField();
 
+                TextKeyboard.instance.OnClickDoneKey -= KeyboardDown;
+                TextKeyboard.instance.OnClickDoneKey += KeyboardDown;
+                /*
                 RectTransform rt = inputField.GetComponent<RectTransform>();
                 if (rt.anchoredPosition.y < TextKeyboard.instance.GetHeight())
                 {
                     KeyboardUp();
-                }
+                }*/
             });
         }
-    }
-
-
-    
-    private void OnDisable()
-    {
-        DelayedReset();
-        currentKeyboardHeightRatio = 0f;
-        TextKeyboard.instance.isActive = false;
     }
 }
