@@ -16,6 +16,7 @@ public class ConversationController : MonoBehaviour
     public TextMeshProUGUI lastMessage;
     public GameObject onlineIcon;
 
+   
     public string recepientID;
 
     [HideInInspector]
@@ -44,6 +45,7 @@ public class ConversationController : MonoBehaviour
             {
 
                 GenerateConversation();
+                
 
             });
         }

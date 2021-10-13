@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using agora_rtm;
 using UnityEngine.Networking;
 using Newtonsoft.Json;
+using UnityEngine.SceneManagement;
 
 public class ChatSystem : MonoBehaviour
 {
@@ -195,6 +196,11 @@ public class ChatSystem : MonoBehaviour
     public void Logout()
     {
         rtmClient.Logout();
+#if UNITY_ANDROID
+        SceneManager.LoadScene("Messenger_Mobile");
+#else
+        SceneManager.LoadScene("Messenger");
+#endif
     }
 
 

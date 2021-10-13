@@ -12,9 +12,11 @@ public class ChatUIManager : MonoBehaviour
 {
 
     public GameObject comScroll;
+    public GameObject popUpwindow;
 
     public static ChatUIManager instance;
     public TextMeshProUGUI profileName;
+    public TextMeshProUGUI MyID;
     public RectTransform conversationContentPanel;
     public RectTransform chatListContentPanel;
     public GameObject senderPrefab;
@@ -26,6 +28,7 @@ public class ChatUIManager : MonoBehaviour
     //For Add Friends & Chat
     public TMP_InputField friendsNameInputField;
     public TMP_InputField sendMessangeInputField;
+    public TMP_InputField Myprofile;
 
 
 
@@ -55,6 +58,11 @@ public class ChatUIManager : MonoBehaviour
     public UnityEvent acceptVideoCallButtonEvent;
     public UnityEvent refuseCallButtonEvent;
 
+    //List
+    public List<string> ReceiepentList;
+
+    //Stack
+    public Stack<GameObject> Panels;
 
 
     //Login
@@ -66,6 +74,10 @@ public class ChatUIManager : MonoBehaviour
     //Mobile Specific UI
     public GameObject homePage;
     public GameObject messagePage;
+    public GameObject ExitPanel;
+
+
+    
 
     private void Awake()
     {
@@ -73,7 +85,29 @@ public class ChatUIManager : MonoBehaviour
         instance = this;    
     }
 
+    public void Update()
+    {
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            if (Input.GetKeyUp(KeyCode.Escape))
+             {
+                if(messagePage)
+                {
+                    homePage.SetActive(true);
+                    messagePage.SetActive(false);
+                }
+                if(loginPanel)
+                {
+                    ExitPanel.SetActive(true);
+                }
 
+               
+            }
+        }
+    }
+
+
+  
     void Start()
     {
 
@@ -87,6 +121,8 @@ public class ChatUIManager : MonoBehaviour
         {
             MessengerManager.instance.LoginToMessenger(username);
             loginPanel.SetActive(false);
+            //Debug.Log(MyID.text);
+            MyID.text = Myprofile.text;
         }
         
     }
@@ -106,6 +142,7 @@ public class ChatUIManager : MonoBehaviour
 
         sendMessangeInputField.text.Trim();
         SendMessageButtonEvent.Invoke();
+        sendMessangeInputField.OnSelect(null);
         
     }
         
@@ -126,6 +163,15 @@ public class ChatUIManager : MonoBehaviour
     {
         leaveCallButtonEvent.Invoke();
         callInterface.SetActive(false);
+    }
+
+    public void OnExitSelected()
+    {
+        Application.Quit();
+    }
+    public void OnNoSelected()
+    {
+        ExitPanel.SetActive(false);
     }
 
 
@@ -156,7 +202,7 @@ public class ChatUIManager : MonoBehaviour
         GameObject prefabToUse = (message.messageType == ChatMessage.MessageType.UserMessage) ? senderPrefab : receiverPrefab;
         prefabToUse.transform.GetChild(0).GetComponentInChildren<TextMeshProUGUI>().text = message.text;
         GameObject.Instantiate(prefabToUse, conversationContentPanel);
-        StartCoroutine(ForceScrollDown(comScroll.GetComponent<ScrollRect>(),0,0,0.5f));
+        StartCoroutine(ForceScrollDown(comScroll.GetComponent<ScrollRect>(),1,0,0.5f));
         
         Canvas.ForceUpdateCanvases();
     }
@@ -180,8 +226,16 @@ public class ChatUIManager : MonoBehaviour
     {
         if(friendsNameInputField.text == "")
         {
+            Debug.Log(ReceiepentList.ToString());
             return;
         }
+
+        if (ReceiepentList.Contains(friendsNameInputField.text))
+        {
+            popUpwindow.SetActive(true);
+            return;
+        }
+
         else
         {
             CreateNewConversation(friendsNameInputField.text);
@@ -195,6 +249,16 @@ public class ChatUIManager : MonoBehaviour
         addFriendsPanel.SetActive(false);
     }
 
+    public void ClosePopUpWindow()
+    {
+        popUpwindow.SetActive(false);
+        addFriendsPanel.SetActive(false);
+    }
+    public void openPopUpWindow()
+    {
+        popUpwindow.SetActive(true);
+    }
+
     //Creates A New Conversation. A chat message object can be added to create a new conversation from message received
     public void CreateNewConversation(string recepientID, ChatMessage msg = null)
     {
@@ -204,7 +268,11 @@ public class ChatUIManager : MonoBehaviour
         GameObject g = GameObject.Instantiate(chatBubblePrefab, chatListContentPanel);
 #endif
         g.GetComponent<ConversationController>().recepientID = recepientID;
-        if(msg != null)
+        ReceiepentList.Add(g.GetComponent<ConversationController>().recepientID);
+
+
+
+        if (msg != null)
             g.GetComponent<ConversationController>().OnMessageReceived(msg);
     }
 
@@ -237,6 +305,7 @@ public class ChatUIManager : MonoBehaviour
 
             string recepientID = Path.GetFileNameWithoutExtension(file.FullName);
             g.GetComponent<ConversationController>().recepientID = recepientID;
+            ReceiepentList.Add(g.GetComponent<ConversationController>().recepientID);
             string jsonData = File.ReadAllText(file.FullName);
             List<ChatMessage> oldMessages = JsonConvert.DeserializeObject<List<ChatMessage>>(jsonData);
             g.GetComponent<ConversationController>().chats = oldMessages;
@@ -295,25 +364,12 @@ public class ChatUIManager : MonoBehaviour
         conversationContentPanel.DestoryAllChildImmediate();
     }
 
-    //private void Update()
-    //{
-    //    if(messagePage)
-    //    {
-    //        if(Input.GetKeyDown(KeyCode.Escape))
-    //        {
-    //            ShowHomeScreen();
-    //        }
-    //    }
-    //    if(homePage)
-    //    {
-    //        Application.Quit();
-    //    }
-    //}
     //Mobile UI Code
     public void ShowHomeScreen()
     {
         homePage.SetActive(true);
         messagePage.SetActive(false);
+        
     }
 
     public void showMessengerScreen()
