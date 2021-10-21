@@ -206,8 +206,16 @@ public class TextKeyboard : MonoBehaviour
             return "";
         }
     }
+    string contentType;
     public void OnClick_KeyButton(KeyboardKeyPressResponse response)
     {
+        
+
+        if(activeInputField.contentType == TMP_InputField.ContentType.Name)
+        {
+            contentType = "Name";
+        }
+
 
         print(" selectionPosition: " + activeInputField.caretPosition+" : FocusPosition :"+activeInputField.selectionFocusPosition);
         switch (response.id)
@@ -278,16 +286,33 @@ public class TextKeyboard : MonoBehaviour
                 break;
             default:
                 
-                string t = activeInputField.text.Insert(activeInputField.caretPosition, response.label);
-                activeInputField.text = t;
-                selectionPosition++;// = activeInputField.selectionStringAnchorPosition;
-                //activeInputField.text += response.label;
-                
-                
-                //activeInputField.selectionAnchorPosition = selectionPosition;
-                activeInputField.caretPosition++;
-                //activeInputField.selectionFocusPosition++;
-                activeInputField.ForceLabelUpdate();         
+                if(contentType == "Name")
+                {
+                    Debug.Log("Content " + contentType);
+                    string t = activeInputField.text.Insert(activeInputField.caretPosition, response.label);
+                    bool isNumber;
+                    if(int.TryParse(t, out _))
+                    {
+                        Debug.Log("Content n " + t);
+                        return;
+                    }
+                    activeInputField.text = t;
+                    selectionPosition++;
+                    activeInputField.caretPosition++;
+
+                    activeInputField.ForceLabelUpdate();
+                }
+                else
+                {
+                    Debug.Log("Content to " + contentType);
+                    string t = activeInputField.text.Insert(activeInputField.caretPosition, response.label);
+                    activeInputField.text = t;
+                    selectionPosition++;
+                    activeInputField.caretPosition++;
+
+                    activeInputField.ForceLabelUpdate();
+                }
+                 
                 break;
         }
     }

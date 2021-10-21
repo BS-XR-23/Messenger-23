@@ -121,8 +121,9 @@ public class ChatUIManager : MonoBehaviour
         {
             MessengerManager.instance.LoginToMessenger(username);
             loginPanel.SetActive(false);
-            //Debug.Log(MyID.text);
+            Debug.Log(MyID.text);
             MyID.text = Myprofile.text;
+            
         }
         
     }
