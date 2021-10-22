@@ -10,8 +10,13 @@ using Newtonsoft.Json;
 
 public class ChatUIManager : MonoBehaviour
 {
+
+    public GameObject comScroll;
+    public GameObject popUpwindow;
+
     public static ChatUIManager instance;
     public TextMeshProUGUI profileName;
+    public TextMeshProUGUI MyID;
     public RectTransform conversationContentPanel;
     public RectTransform chatListContentPanel;
     public GameObject senderPrefab;
@@ -20,15 +25,17 @@ public class ChatUIManager : MonoBehaviour
     public GameObject chatBubblePrefab;
     public GameObject chatBubblePrefab_Mobile;
     public GameObject addFriendsPanel;
-    //For Add Friends
+    //For Add Friends & Chat
     public TMP_InputField friendsNameInputField;
+    public TMP_InputField sendMessangeInputField;
+    public TMP_InputField Myprofile;
 
 
 
     //For Calling UI
     public GameObject callInterface;
     public TextMeshProUGUI receiverName;
-    public RawImage videoCallSurface;
+    public GameObject videoCallSurface;
     public GameObject audioCallSurface;
 
 
@@ -51,6 +58,13 @@ public class ChatUIManager : MonoBehaviour
     public UnityEvent acceptVideoCallButtonEvent;
     public UnityEvent refuseCallButtonEvent;
 
+    //List
+    public List<string> ReceiepentList;
+
+    //Stack
+    public Stack<GameObject> Panels;
+
+
     //Login
     public GameObject loginPanel;
 
@@ -60,23 +74,58 @@ public class ChatUIManager : MonoBehaviour
     //Mobile Specific UI
     public GameObject homePage;
     public GameObject messagePage;
+    public GameObject ExitPanel;
+
+
+    
 
     private void Awake()
     {
+
         instance = this;    
     }
 
+    public void Update()
+    {
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            if (Input.GetKeyUp(KeyCode.Escape))
+             {
+                if(messagePage)
+                {
+                    homePage.SetActive(true);
+                    messagePage.SetActive(false);
+                }
+                if(loginPanel)
+                {
+                    ExitPanel.SetActive(true);
+                }
 
+               
+            }
+        }
+    }
+
+
+  
     void Start()
     {
+
         loginPanel.SetActive(useInternalLogin);
     }
 
     public void OnLoginButtonClicked()
     {
         string username =  loginPanel.GetComponentInChildren<TMP_InputField>().text;
-        MessengerManager.instance.LoginToMessenger(username);
-        loginPanel.SetActive(false);
+        if (username != "")
+        {
+            MessengerManager.instance.LoginToMessenger(username);
+            loginPanel.SetActive(false);
+            Debug.Log(MyID.text);
+            MyID.text = Myprofile.text;
+            
+        }
+        
     }
 
     public void SetUserName(string name)
@@ -91,8 +140,13 @@ public class ChatUIManager : MonoBehaviour
 
     public void OnSendButtonClick()
     {
+
+        sendMessangeInputField.text.Trim();
         SendMessageButtonEvent.Invoke();
+        sendMessangeInputField.OnSelect(null);
+        
     }
+        
 
     //Calling Someone
 
@@ -110,6 +164,15 @@ public class ChatUIManager : MonoBehaviour
     {
         leaveCallButtonEvent.Invoke();
         callInterface.SetActive(false);
+    }
+
+    public void OnExitSelected()
+    {
+        Application.Quit();
+    }
+    public void OnNoSelected()
+    {
+        ExitPanel.SetActive(false);
     }
 
 
@@ -140,14 +203,61 @@ public class ChatUIManager : MonoBehaviour
         GameObject prefabToUse = (message.messageType == ChatMessage.MessageType.UserMessage) ? senderPrefab : receiverPrefab;
         prefabToUse.transform.GetChild(0).GetComponentInChildren<TextMeshProUGUI>().text = message.text;
         GameObject.Instantiate(prefabToUse, conversationContentPanel);
+        StartCoroutine(ForceScrollDown(comScroll.GetComponent<ScrollRect>(),1,0,0.5f));
+        
         Canvas.ForceUpdateCanvases();
+    }
+
+    IEnumerator ForceScrollDown(ScrollRect scrollRect,float startPosition, float endPosition,float duration)
+    {
+        // Wait for end of frame AND force update all canvases before setting to bottom.
+        yield return new WaitForSeconds(0.5f);
+        float t0 = 0.0f;
+        while(t0 < 1.0f)
+        {
+            t0 += Time.deltaTime / duration;
+            scrollRect.horizontalNormalizedPosition = Mathf.Lerp(startPosition, endPosition, t0);
+            scrollRect.verticalNormalizedPosition = Mathf.Lerp(startPosition, endPosition, t0);
+            yield return null;
+        }
     }
 
     // Just Creates A Brand new conversation based on given username.
     public void AddFriends()
     {
-        CreateNewConversation(friendsNameInputField.text);
+        if(friendsNameInputField.text == "")
+        {
+            Debug.Log(ReceiepentList.ToString());
+            return;
+        }
+
+        if (ReceiepentList.Contains(friendsNameInputField.text))
+        {
+            popUpwindow.SetActive(true);
+            return;
+        }
+
+        else
+        {
+            CreateNewConversation(friendsNameInputField.text);
+            addFriendsPanel.SetActive(false);
+        }
+        
+    }
+
+    public void CloseAddFriendWindow()
+    {
         addFriendsPanel.SetActive(false);
+    }
+
+    public void ClosePopUpWindow()
+    {
+        popUpwindow.SetActive(false);
+        addFriendsPanel.SetActive(false);
+    }
+    public void openPopUpWindow()
+    {
+        popUpwindow.SetActive(true);
     }
 
     //Creates A New Conversation. A chat message object can be added to create a new conversation from message received
@@ -159,7 +269,11 @@ public class ChatUIManager : MonoBehaviour
         GameObject g = GameObject.Instantiate(chatBubblePrefab, chatListContentPanel);
 #endif
         g.GetComponent<ConversationController>().recepientID = recepientID;
-        if(msg != null)
+        ReceiepentList.Add(g.GetComponent<ConversationController>().recepientID);
+
+
+
+        if (msg != null)
             g.GetComponent<ConversationController>().OnMessageReceived(msg);
     }
 
@@ -192,6 +306,7 @@ public class ChatUIManager : MonoBehaviour
 
             string recepientID = Path.GetFileNameWithoutExtension(file.FullName);
             g.GetComponent<ConversationController>().recepientID = recepientID;
+            ReceiepentList.Add(g.GetComponent<ConversationController>().recepientID);
             string jsonData = File.ReadAllText(file.FullName);
             List<ChatMessage> oldMessages = JsonConvert.DeserializeObject<List<ChatMessage>>(jsonData);
             g.GetComponent<ConversationController>().chats = oldMessages;
@@ -250,12 +365,12 @@ public class ChatUIManager : MonoBehaviour
         conversationContentPanel.DestoryAllChildImmediate();
     }
 
-
     //Mobile UI Code
     public void ShowHomeScreen()
     {
         homePage.SetActive(true);
         messagePage.SetActive(false);
+        
     }
 
     public void showMessengerScreen()

@@ -16,6 +16,7 @@ public class ConversationController : MonoBehaviour
     public TextMeshProUGUI lastMessage;
     public GameObject onlineIcon;
 
+   
     public string recepientID;
 
     [HideInInspector]
@@ -44,6 +45,7 @@ public class ConversationController : MonoBehaviour
             {
 
                 GenerateConversation();
+                
 
             });
         }
@@ -94,6 +96,7 @@ public class ConversationController : MonoBehaviour
     {
         ChatUIManager.instance.SetUserName(recepientID);
         LoadMessages();
+
         ChatUIManager.instance.SendMessageButtonEvent.RemoveAllListeners();
         ChatUIManager.instance.SendMessageButtonEvent.AddListener(() =>
         {
@@ -159,6 +162,7 @@ public class ConversationController : MonoBehaviour
         
 
     }
+
 
     public void DoAfterConvoUpdate()
     {

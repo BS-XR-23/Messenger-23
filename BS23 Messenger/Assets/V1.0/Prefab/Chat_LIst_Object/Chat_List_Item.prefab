@@ -689,6 +689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c64499e3de07424e8b63fcd52a71c21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mobilePrefab: 0
   profileName: {fileID: 7775131646854569962}
   lastMessage: {fileID: 7775131647216410561}
   onlineIcon: {fileID: 376681549}
@@ -705,11 +706,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8f45096e8948fb408c3ac77ce135a65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedToggleBGColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  deselectedToggleBGColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedToggleBGColor: {r: 1, g: 1, b: 1, a: 1}
+  deselectedToggleBGColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4800307348575631476, guid: 173dd70697d26d646a755b82758000b2, type: 3}
+        m_TargetAssemblyTypeName: ChatUIManager, Assembly-CSharp
+        m_MethodName: OnRecieveNotifications
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6047979560962390441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -930,7 +943,7 @@ MonoBehaviour:
   m_text: Tanimul Haque Khan
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 9ad269c99dcf42b7aedefd83dd5a7b9d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1064,7 +1077,7 @@ MonoBehaviour:
   m_text: New Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 9ad269c99dcf42b7aedefd83dd5a7b9d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

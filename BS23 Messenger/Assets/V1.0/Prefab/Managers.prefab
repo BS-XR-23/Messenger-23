@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4800307348575631480
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4800307348575631478}
+  - component: {fileID: 4800307348575631481}
+  - component: {fileID: 4800307348575631479}
+  - component: {fileID: 4800307348575631476}
+  - component: {fileID: 4800307348575631477}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4800307348575631478
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4800307348575631480}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -289.88544, y: 138.68542, z: -3401.099}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4800307348575631481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4800307348575631480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bf03b97630b4fc4cb092480eca29421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chatSystem: {fileID: 4800307348575631479}
+  callManager: {fileID: 0}
+  loggedInUserID: 
+  RtcToken: 
+  messengerRoot: {fileID: 0}
+  AppID: ebc33db2bc634566a19712bdd98865cd
+--- !u!114 &4800307348575631479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4800307348575631480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9a29d82f6edd0f4c90b2f3905a419ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customServerURL: https://agora-token-demo.herokuapp.com
+  usernameText: {fileID: 0}
+--- !u!114 &4800307348575631476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4800307348575631480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b53b34f884174c44a3d658d50369e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comScroll: {fileID: 0}
+  profileName: {fileID: 0}
+  conversationContentPanel: {fileID: 0}
+  chatListContentPanel: {fileID: 0}
+  senderPrefab: {fileID: 1528371841467000794, guid: db1884904db296e48b2b1aa880fcd9b7, type: 3}
+  receiverPrefab: {fileID: 2337376481574771369, guid: 4aaa76a96bb40914b8e786d6e45792a8, type: 3}
+  chatTextInput: {fileID: 0}
+  chatBubblePrefab: {fileID: 7775131645795815904, guid: def471ac9282b6c449a93c465789eca1, type: 3}
+  chatBubblePrefab_Mobile: {fileID: 0}
+  addFriendsPanel: {fileID: 0}
+  friendsNameInputField: {fileID: 0}
+  sendMessangeInputField: {fileID: 0}
+  callInterface: {fileID: 0}
+  receiverName: {fileID: 0}
+  videoCallSurface: {fileID: 0}
+  audioCallSurface: {fileID: 0}
+  incomingCallBase: {fileID: 0}
+  callerName: {fileID: 0}
+  SendMessageButtonEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  audioCallButtonEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  videoCallButtonEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  leaveCallButtonEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  acceptCallButtonEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  acceptVideoCallButtonEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  refuseCallButtonEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  mssgReceivedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  loginPanel: {fileID: 0}
+  useInternalLogin: 1
+  homePage: {fileID: 0}
+  messagePage: {fileID: 0}
+--- !u!114 &4800307348575631477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4800307348575631480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8eb644129e8b7e4bb134d6718c4c135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInCall: 0
+  videoImage: {fileID: 0}
