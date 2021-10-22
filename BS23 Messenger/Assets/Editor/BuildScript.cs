@@ -132,13 +132,13 @@ namespace UnityBuilderAction
         [MenuItem("Build/Build StandaloneWindows64")]
         public static void BuildWindows64()
         {
-            Build(BuildTarget.StandaloneWindows64, "./Build/StandaloneWin64/RainbowVisualizer.exe");
+            Build(BuildTarget.StandaloneWindows64, "./Build/StandaloneWin64/Messenger-23.exe");
         }
 
         [MenuItem("Build/Build Android")]
         public static void BuildAndroid()
         {
-            Build(BuildTarget.Android, "./Build/Android/RainbowVisualizer.apk");
+            Build(BuildTarget.Android, "./Build/Android/Messenger-23.apk");
         }
 
 
@@ -148,30 +148,14 @@ namespace UnityBuilderAction
             if (buildTarget == BuildTarget.StandaloneWindows64)
             {
                 scenes= new[] {
-                    "Assets/v0.1/Scenes/MainScene.unity",
-                    "Assets/v0.1/Scenes/Calculator_Desktop.unity",
-                    "Assets/v0.1/Scenes/Products_Desktop.unity",
-                    "Assets/v0.1/Scenes/Stores_Desktop.unity",
-                    "Assets/v0.1/Scenes/Visualizer_Desktop.unity",
-                    "Assets/v0.1/Scenes/Visualizer_FirstPage_Desktop.unity"
+                    "Assets/V1.0/Scenes/Desktop/Messenger.unity",
                 };
             }
 
             if (buildTarget == BuildTarget.Android)
             {
                 scenes = new[] {
-                    "Assets/v0.1/Android/Scenes/FirstPage_Menu.unity",
-                    "Assets/v0.1/Android/Scenes/Color_Visualizer.unity",
-                    "Assets/v0.1/Android/Scenes/ColorBank.unity",
-                    "Assets/v0.1/Android/Scenes/Dashboard.unity",
-                    "Assets/v0.1/Android/Scenes/Paint_Calculator.unity",
-                    "Assets/v0.1/Android/Scenes/Products_Details.unity",
-                    "Assets/v0.1/Android/Scenes/Products_Info.unity",
-                    "Assets/v0.1/Android/Scenes/Rainbow_Gallery.unity",
-                    "Assets/v0.1/Android/Scenes/Rainbow_Gallery_CategoryScene.unity",
-                    "Assets/v0.1/Android/Scenes/Rainbow_Gallery_SubCategoryScene.unity",
-                    "Assets/v0.1/Android/Scenes/Store_Locator.unity",
-                    "Assets/v0.1/Android/Scenes/Visualizer_Android.unity"
+                    "Assets/V1.0/Scenes/Mobile/Messenger_Mobile.unity",
                 };
             }
 
