@@ -60,7 +60,7 @@ public class InputFieldForScreenKeyboardPanelAdjuster : MonoBehaviour, IPointerD
 
     public float GetKeyboardHeightRatio()
     {
-        return 0.31f;
+        return 0.32f;
     }
 
     void DelayedReset()

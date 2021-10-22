@@ -42,12 +42,18 @@ namespace agora_gaming_rtc
         private bool _initialized = false;
         public bool _enableFlipHorizontal = false;
         public bool _enableFlipVertical = false;
-        public uint videoFps = 30; 
+        public uint videoFps = 30;
+
+        public Vector2 inputTextureSize;
+        public AspectRatioFitter aspectRatioFitter;
+
         [SerializeField]
         AgoraVideoSurfaceType VideoSurfaceType = AgoraVideoSurfaceType.Renderer;
         
         void Start()
         {
+           aspectRatioFitter = GetComponent<AspectRatioFitter>();
+
             // render video
             if (VideoSurfaceType == AgoraVideoSurfaceType.Renderer)
             {
@@ -204,6 +210,15 @@ namespace agora_gaming_rtc
                     ApplyTexture(null);
                 }
             }
+
+            inputTextureSize = new Vector2(mRawImage.texture.width, mRawImage.texture.height);
+
+            float videostreamRatio = (float) mRawImage.texture.width / mRawImage.texture.height;
+
+            aspectRatioFitter.aspectRatio = videostreamRatio;
+
+           
+
             #endif
         }
 
@@ -415,6 +430,7 @@ namespace agora_gaming_rtc
         *if disabled, then no rendering happens
         */
         private bool mEnable = true;
+      
 
         /*
         *    Updates Shader to unlit on Editor (some Editor version has the default material that can be too dark.

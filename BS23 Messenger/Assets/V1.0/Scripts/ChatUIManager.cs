@@ -35,7 +35,7 @@ public class ChatUIManager : MonoBehaviour
     //For Calling UI
     public GameObject callInterface;
     public TextMeshProUGUI receiverName;
-    public RawImage videoCallSurface;
+    public GameObject videoCallSurface;
     public GameObject audioCallSurface;
 
 
