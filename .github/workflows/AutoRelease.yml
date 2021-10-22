@@ -47,6 +47,7 @@ jobs:
       - uses: game-ci/unity-builder@v2
         with:
           targetPlatform: StandaloneWindows64
+          buildMethod: UnityBuilderAction.BuildScript.Build
 
       - uses: actions/upload-artifact@v2
         with:
@@ -90,6 +91,7 @@ jobs:
       - uses: game-ci/unity-builder@v2
         with:
           targetPlatform: Android
+          buildMethod: UnityBuilderAction.BuildScript.Build
 
       - uses: actions/upload-artifact@v2
         with:
