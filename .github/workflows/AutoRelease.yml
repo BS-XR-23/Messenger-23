@@ -48,6 +48,7 @@ jobs:
         with:
           targetPlatform: StandaloneWindows64
           buildMethod: UnityBuilderAction.BuildScript.Build
+          projectPath: BS23 Messenger
 
       - uses: actions/upload-artifact@v2
         with:
@@ -92,6 +93,7 @@ jobs:
         with:
           targetPlatform: Android
           buildMethod: UnityBuilderAction.BuildScript.Build
+          projectPath: BS23 Messenger
 
       - uses: actions/upload-artifact@v2
         with:
