@@ -52,8 +52,7 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: build-StandaloneWindows64
-          path: build/StandaloneWindows64
+          path: build
 
   buildAndroid:
     name: Build for Android 📱
@@ -97,8 +96,7 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: build-Android
-          path: build/Android
+          path: build
 
 
   deployPages:
