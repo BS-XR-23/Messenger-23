@@ -7,6 +7,7 @@ env:
   UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
   UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
   UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+  GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
 
 jobs:
   
@@ -111,5 +112,10 @@ jobs:
 
       - name: Display structure of downloaded files
         run: ls -R
-
+        
+      - name: Release
+        uses: ridedott/release-me-action@master
+        with:
+          release-assets: |
+            ./Artifact/Android/Messenger-23.apk
    
