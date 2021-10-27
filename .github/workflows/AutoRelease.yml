@@ -109,6 +109,11 @@ jobs:
         uses: actions/checkout@v2
 
       - uses: actions/download-artifact@v2
+     
+      - name: Compress
+        uses: montudor/action-zip@v0.1.1
+        with:
+          args: zip -qq -r ./artifact/StandaloneWindows64.zip ./artifact/StandaloneWindows64
 
       - name: Display structure of downloaded files
         run: ls -R
@@ -116,6 +121,8 @@ jobs:
       - name: Release
         uses: ridedott/release-me-action@master
         with:
+          release-branches: '["main"]'
           release-assets: |
-            ./Artifact/Android/Messenger-23.apk
+            ./artifact/Android/Android.apk
+            ./artifact/StandaloneWindows64.zip
    
