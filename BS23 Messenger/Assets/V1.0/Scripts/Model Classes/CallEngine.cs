@@ -98,6 +98,65 @@ public class CallEngine
     }
 
 
+    //Mute  Call
+    public void MuteCall(bool isMute)
+    {
+        if (mRtcEngine == null)
+        {
+            return;
+        }
+ 
+        mRtcEngine.MuteLocalAudioStream(isMute);
+    }
+
+    //Mute Video Call
+    public void DisableVideo(bool isVideo)
+    {
+        if (mRtcEngine == null)
+        {
+            return;
+        }
+
+        if(!isVideo)
+        {
+            mRtcEngine.DisableVideo();
+            isVideo = true;
+        }
+        else
+        {
+            mRtcEngine.EnableVideo();
+        }
+        
+       
+    }
+
+    public void EnableVideo()
+    {
+        if (mRtcEngine == null)
+        {
+            return;
+        }
+
+        mRtcEngine.EnableVideo();
+    }
+
+
+    //Enable Speaker
+    public void EnableSpeaker(bool isSpeaker)
+    {
+
+        if (mRtcEngine == null)
+        {
+            return;
+        }
+
+        mRtcEngine.SetEnableSpeakerphone(isSpeaker);
+    }
+
+    public void SwitchCamera()
+    {
+        mRtcEngine.SwitchCamera();
+    }
 
     private int LastError { get; set; }
     private void HandleError(int error, string msg)

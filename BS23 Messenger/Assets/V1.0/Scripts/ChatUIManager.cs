@@ -7,13 +7,14 @@ using TMPro;
 using UnityEngine.Events;
 using agora_rtm;
 using Newtonsoft.Json;
+using System;
 
 public class ChatUIManager : MonoBehaviour
 {
 
     public GameObject comScroll;
     public GameObject popUpwindow;
-
+    
     public static ChatUIManager instance;
     public TextMeshProUGUI profileName;
     public TextMeshProUGUI MyID;
@@ -37,6 +38,7 @@ public class ChatUIManager : MonoBehaviour
     public TextMeshProUGUI receiverName;
     public GameObject videoCallSurface;
     public GameObject audioCallSurface;
+    public GameObject selfCameraView;
 
 
     //For Incoming Call UI
@@ -77,6 +79,7 @@ public class ChatUIManager : MonoBehaviour
     public GameObject ExitPanel;
 
 
+    public GameObject DateText;
     
 
     private void Awake()
@@ -87,6 +90,9 @@ public class ChatUIManager : MonoBehaviour
 
     public void Update()
     {
+
+       // Debug.Log("Real time and date " + DateTime.Now);
+
         if (Application.platform == RuntimePlatform.Android)
         {
             if (Input.GetKeyUp(KeyCode.Escape))
@@ -144,6 +150,10 @@ public class ChatUIManager : MonoBehaviour
         sendMessangeInputField.text.Trim();
         SendMessageButtonEvent.Invoke();
         sendMessangeInputField.OnSelect(null);
+        //GameObject.Instantiate(DateText, conversationContentPanel);
+        //DateText.GetComponent<TextMeshProUGUI>().text = DateTime.Now.ToString();
+        Debug.Log("time " + DateTime.Now);
+       
         
     }
         
@@ -198,15 +208,44 @@ public class ChatUIManager : MonoBehaviour
 
 
     //This adds a message to the ui based on who is the sender and who is the receiver.
+    //public void AddMessage(Conversations message)
+    //{
+    //    GameObject prefabToUse = (message.chats.messageType == ChatMessage.MessageType.UserMessage) ? senderPrefab : receiverPrefab;
+
+    //    //prefabToUse.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = DateTime.Now.ToString();
+    //    prefabToUse.transform.GetChild(0).GetComponentInChildren<TextMeshProUGUI>().text = message.chats.text;
+    //    message.UpdatedDateTime();
+        
+    //    GameObject.Instantiate(prefabToUse, conversationContentPanel);
+    //    StartCoroutine(ForceScrollDown(comScroll.GetComponent<ScrollRect>(),0,0,0.5f));
+        
+    //    Canvas.ForceUpdateCanvases();
+    //}
+
+
     public void AddMessage(ChatMessage message)
     {
         GameObject prefabToUse = (message.messageType == ChatMessage.MessageType.UserMessage) ? senderPrefab : receiverPrefab;
-        prefabToUse.transform.GetChild(0).GetComponentInChildren<TextMeshProUGUI>().text = message.text;
-        GameObject.Instantiate(prefabToUse, conversationContentPanel);
-        StartCoroutine(ForceScrollDown(comScroll.GetComponent<ScrollRect>(),1,0,0.5f));
+
         
+        //prefab
+      //  prefabToUse.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = DateTime.Now.ToString();
+        prefabToUse.transform.GetChild(0).GetComponentInChildren<TextMeshProUGUI>().text = message.text;
+
+
+        //loading data to model class
+        //Conversations convo = new Conversations();
+        //message.text = convo.Messages;
+        //convo.DateText = DateTime.Now.ToString();
+        //Debug.Log("Messages " + message.text);
+
+
+        GameObject.Instantiate(prefabToUse, conversationContentPanel);
+        StartCoroutine(ForceScrollDown(comScroll.GetComponent<ScrollRect>(), 0, 0, 0.5f));
+
         Canvas.ForceUpdateCanvases();
     }
+
 
     IEnumerator ForceScrollDown(ScrollRect scrollRect,float startPosition, float endPosition,float duration)
     {
@@ -225,6 +264,7 @@ public class ChatUIManager : MonoBehaviour
     // Just Creates A Brand new conversation based on given username.
     public void AddFriends()
     {
+        
         if(friendsNameInputField.text == "")
         {
             Debug.Log(ReceiepentList.ToString());
@@ -233,6 +273,7 @@ public class ChatUIManager : MonoBehaviour
 
         if (ReceiepentList.Contains(friendsNameInputField.text))
         {
+            
             popUpwindow.SetActive(true);
             return;
         }
@@ -244,6 +285,14 @@ public class ChatUIManager : MonoBehaviour
         }
         
     }
+
+    public void OpenFriendsPanelWindow()
+    {
+        addFriendsPanel.SetActive(true);
+        friendsNameInputField.ActivateInputField();
+        chatTextInput.DeactivateInputField();
+    }
+   
 
     public void CloseAddFriendWindow()
     {

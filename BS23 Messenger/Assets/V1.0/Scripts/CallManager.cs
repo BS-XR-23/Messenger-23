@@ -26,6 +26,8 @@ public class CallManager : MonoBehaviour
     {
         app.leave();
         isInCall = false;
+        MuteCall(false);
+        DisableVideo(false);
         currentChannelName = "";
     }
 
@@ -96,6 +98,28 @@ public class CallManager : MonoBehaviour
         Debug.Log("Send invitation to " + peerUid + " rc = " + rc);
     }
 
+    public void MuteCall(bool isMute)
+    {
+        app.MuteCall(isMute);
+        
+    }
+
+    public void OnSpeakerEnable(bool isSpeaker)
+    {
+        app.EnableSpeaker(isSpeaker);
+    }
+
+    public void OnSwitchCamera()
+    {
+        app.SwitchCamera();
+    }
+
+    public void DisableVideo(bool isDisable)
+    {
+        app.DisableVideo(isDisable);
+        ChatUIManager.instance.selfCameraView.SetActive(isDisable);
+       
+    }
     private void OnApplicationQuit()
     {
         app.unloadEngine();
