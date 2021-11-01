@@ -150,6 +150,7 @@ public class ChatUIManager : MonoBehaviour
         sendMessangeInputField.text.Trim();
         SendMessageButtonEvent.Invoke();
         sendMessangeInputField.OnSelect(null);
+      
         //GameObject.Instantiate(DateText, conversationContentPanel);
         //DateText.GetComponent<TextMeshProUGUI>().text = DateTime.Now.ToString();
         Debug.Log("time " + DateTime.Now);
@@ -264,8 +265,10 @@ public class ChatUIManager : MonoBehaviour
     // Just Creates A Brand new conversation based on given username.
     public void AddFriends()
     {
+
         
-        if(friendsNameInputField.text == "")
+
+        if (friendsNameInputField.text == "")
         {
             Debug.Log(ReceiepentList.ToString());
             return;
@@ -288,15 +291,17 @@ public class ChatUIManager : MonoBehaviour
 
     public void OpenFriendsPanelWindow()
     {
+
+        sendMessangeInputField.enabled = false;
+
         addFriendsPanel.SetActive(true);
-        friendsNameInputField.ActivateInputField();
-        chatTextInput.DeactivateInputField();
     }
    
 
     public void CloseAddFriendWindow()
     {
         addFriendsPanel.SetActive(false);
+        sendMessangeInputField.enabled = true;
     }
 
     public void ClosePopUpWindow()

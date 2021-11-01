@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-
-public class KeyButton : MonoBehaviour
+using UnityEngine.EventSystems;
+public class KeyButton : MonoBehaviour//, IPointerClickHandler
 {
     public enum AnimationState { unpressed, pressed };
     public AnimationState animationState;
@@ -8,10 +8,9 @@ public class KeyButton : MonoBehaviour
     public GameObject image;
     public GameObject text;
 
-    bool isLong;
     public void OnClick_KeyButton()
     {
-        TextKeyboard.instance.OnClick_KeyButton(new KeyboardKeyPressResponse() { id = id, label = text.GetComponent<TMPro.TMP_Text>().text });
+        KeyboardManager.instance.OnClick_KeyButton(new KeyboardKeyPressResponse() { id = id, label = text.GetComponent<TMPro.TMP_Text>().text });
     }
 
     public void OnPointerEnter()
@@ -25,24 +24,50 @@ public class KeyButton : MonoBehaviour
 
     public void OnPointerDown()
     {
+        //if (id == "shift1") { CancelInvoke(); return; }
+
         if (animationState == AnimationState.unpressed)
         {
-            Debug.Log("Removing");
             animationState = AnimationState.pressed;
             GetComponent<Animator>().Play(Animator.StringToHash("keyboard_btn_onpressed"));
         }
         InvokeRepeating("LongPressed", 1, 0.15f);
     }
+    //public void OnPointerClick(PointerEventData eventData)
+    //{
+    //    if (id == "shift1" && !KeyboardManager.instance.isSingleCapKey) {
+    //        if (animationState == AnimationState.unpressed)
+    //        {
+    //            animationState = AnimationState.pressed;
+    //            GetComponent<Animator>().Play(Animator.StringToHash("keyboard_btn_onpressed"));
+    //            int clickCount = eventData.clickCount;
+    //            if (clickCount == 1)
+    //                OnSingleClick(); 
+    //            else if (clickCount == 2)
+    //                OnDoubleClick();
+    //        }
+            
+    //    }
+    //    CancelInvoke();
+    //}
 
-    public void OnPointerClick()
+    void OnSingleClick()
     {
-        if (animationState == AnimationState.unpressed)
-        {
-            animationState = AnimationState.pressed;
-            GetComponent<Animator>().Play(Animator.StringToHash("keyboard_btn_onpressed"));
-        }
+        KeyboardManager.instance.isSingleCapKey = true;
+        KeyboardManager.instance.OnClick_KeyButton(new KeyboardKeyPressResponse() { id = "shift1", label = text.GetComponent<TMPro.TMP_Text>().text });
     }
 
+    void OnDoubleClick()
+    {
+        KeyboardManager.instance.isSingleCapKey = false;
+        KeyboardManager.instance.OnClick_KeyButton(new KeyboardKeyPressResponse() { id = "shift1", label = text.GetComponent<TMPro.TMP_Text>().text });
+        
+    }
+
+    void OnMultiClick()
+    {
+        Debug.Log("MultiClick Clicked");
+    }
     public void OnPointerExit()
     {
         if (animationState == AnimationState.pressed)
@@ -68,4 +93,6 @@ public class KeyButton : MonoBehaviour
     {
         OnClick_KeyButton();
     }
+
+    
 }

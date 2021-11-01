@@ -6,49 +6,43 @@ using System.Collections.Generic;
 
 public class TextKeyboard : MonoBehaviour
 {
-    public static TextKeyboard instance;
+    //public static TextKeyboard instance;
 
     public enum KeyboardState { ONE = 0, TWO = 1, THREE = 2, FOUR = 3 };
+    public GameObject normalKeyboard, numaricKeyboard;
     public KeyboardState keyboardState;
     public KeyboardConfiguration[] keyboardConfiguration;
     public RectTransform[] horizontal_layouts;
 
     public Sprite shiftkey_sprite;
     public Sprite backspace_sprite;
-
-    float h_LayoutWidth, h_LayoutSpacing, h_ChildCount, h_SpaceCount, key_width;
-
-    public TMP_InputField activeInputField;
-
     public System.Action OnClickDoneKey;
+    public bool isSingleCapKey;
+    private float h_LayoutWidth, h_LayoutSpacing, h_ChildCount, h_SpaceCount, key_width;
 
-    [HideInInspector]
-    public bool isActive;
+    [HideInInspector] public TMP_InputField? activeInputField;
+    [HideInInspector] public bool isActive;
+    [HideInInspector] public GameObject spawnKeyPrefab;
+    [HideInInspector] public int selectionPosition;
 
     private RectTransform r_transform;
-    public GameObject spawnKeyPrefab;
-
-   
-    
-    [HideInInspector]
-    public int selectionPosition;
     public float GetHeight()
     {
         return r_transform.rect.height;
     }
 
-    private void Awake()
-    {
-        if (instance != null)
-        {
-            DestroyImmediate(gameObject);
-        }
-        else
-        {
-            instance = this;
-            DontDestroyOnLoad(this);
-        }
-    }
+    //private void Awake()
+    //{
+    //    if (instance != null)
+    //    {
+    //        DestroyImmediate(gameObject);
+    //    }
+    //    else
+    //    {
+    //        instance = this;
+    //        DontDestroyOnLoad(this);
+    //    }
+    //}
 
     private void OnEnable()
     {
@@ -70,6 +64,7 @@ public class TextKeyboard : MonoBehaviour
 
     void SetupKeyboardLayout()
     {
+        
         keyboardState = KeyboardState.ONE;
         h_LayoutWidth = horizontal_layouts[0].sizeDelta.x;
         h_LayoutSpacing = horizontal_layouts[0].GetComponent<HorizontalLayoutGroup>().spacing;
@@ -83,6 +78,9 @@ public class TextKeyboard : MonoBehaviour
         }
         SetFunctionalKeys(horizontal_layouts[3], horizontal_layouts[4]);
         SetKeysAndLabels(keyboardState);
+        
+        
+        
     }
 
     void SetKeySize(RectTransform h_layout)
@@ -112,15 +110,19 @@ public class TextKeyboard : MonoBehaviour
         size = spacekey_layout.GetChild(0).GetComponent<RectTransform>().sizeDelta;
         size.x = button_width;
         spacekey_layout.GetChild(0).GetComponent<RectTransform>().sizeDelta = size;
+
+        size = spacekey_layout.GetChild(1).GetComponent<RectTransform>().sizeDelta;
+        size.x = button_width;
+        spacekey_layout.GetChild(1).GetComponent<RectTransform>().sizeDelta = size;
         // space key
-        float spacekey_width = (h_LayoutWidth - (float)((spacekey_layout.childCount + 1f) * h_LayoutSpacing)) - (button_width * 2f);
+        float spacekey_width = (h_LayoutWidth - (float)((spacekey_layout.childCount + 1f) * h_LayoutSpacing)) - (button_width * 3f);
         size = spacekey_layout.GetChild(1).GetComponent<RectTransform>().sizeDelta;
         size.x = spacekey_width;
-        spacekey_layout.GetChild(1).GetComponent<RectTransform>().sizeDelta = size;
-        // bottomright key
-        size = spacekey_layout.GetChild(2).GetComponent<RectTransform>().sizeDelta;
-        size.x = button_width;
         spacekey_layout.GetChild(2).GetComponent<RectTransform>().sizeDelta = size;
+        // bottomright key
+        size = spacekey_layout.GetChild(3).GetComponent<RectTransform>().sizeDelta;
+        size.x = button_width;
+        spacekey_layout.GetChild(3).GetComponent<RectTransform>().sizeDelta = size;
     }
 
     void SetKeysAndLabels(KeyboardState k_state)
@@ -206,23 +208,15 @@ public class TextKeyboard : MonoBehaviour
             return "";
         }
     }
-    string contentType;
     public void OnClick_KeyButton(KeyboardKeyPressResponse response)
     {
-        
-
-        if(activeInputField.contentType == TMP_InputField.ContentType.Name)
-        {
-            contentType = "Name";
-        }
-
-
-        print(" selectionPosition: " + activeInputField.caretPosition+" : FocusPosition :"+activeInputField.selectionFocusPosition);
+        Debug.Log(isSingleCapKey);
         switch (response.id)
         {
             case "symbols1":
                 keyboardState = KeyboardState.THREE;
                 SetKeysAndLabels(keyboardState);
+                SingleCapKey();
                 break;
             case "symbols2":
                 keyboardState = KeyboardState.ONE;
@@ -245,78 +239,68 @@ public class TextKeyboard : MonoBehaviour
                 SetKeysAndLabels(keyboardState);
                 break;
             case "space":
+                if (activeInputField.text.Length+1 >= activeInputField.characterLimit && activeInputField.characterLimit != 0) break;
+                if (activeInputField.text.Length == 0) break;
                 string s = activeInputField.text.Insert(activeInputField.caretPosition, " ");
                 activeInputField.text = s;
                 activeInputField.caretPosition++;
                 //activeInputField.selectionFocusPosition++;
                 activeInputField.ForceLabelUpdate();
+                SingleCapKey();
                 break;
             case "done":
+                SingleCapKey();
                 OnClickDoneKey?.Invoke();
                 break;
             case "backspace":
-                if (activeInputField.text.Length > 0)
-                {
-                    string value = activeInputField.text;
-                    List<char> charList = new List<char>();
-                    foreach (char item in value)
-                    {
-                        charList.Add(item);
-                    }
-                    charList.RemoveAt(activeInputField.caretPosition - 1);
-                    string originalword = "";
+                if (activeInputField.text.Length == 0) break;
 
-                    foreach (var letter in charList)
-                    {
-                        originalword += letter.ToString();
-                    }
-                    activeInputField.text = originalword;
-                    if (activeInputField.caretPosition == activeInputField.text.Length)
-                    {
-                        print("equal");
-                        activeInputField.ForceLabelUpdate();
-                        return;
-                    }
-                    else
-                    {
-                        activeInputField.caretPosition--;
-                        activeInputField.ForceLabelUpdate();
-                    }
-                }           
-                break;
-            default:
-                
-                if(contentType == "Name")
+                string value = activeInputField.text;
+                List<char> charList = new List<char>();
+                foreach (char item in value)
                 {
-                    Debug.Log("Content " + contentType);
-                    string t = activeInputField.text.Insert(activeInputField.caretPosition, response.label);
-                    bool isNumber;
-                    if(int.TryParse(t, out _))
-                    {
-                        Debug.Log("Content n " + t);
-                        return;
-                    }
-                    activeInputField.text = t;
-                    selectionPosition++;
-                    activeInputField.caretPosition++;
+                    charList.Add(item);
+                }
+                charList.RemoveAt(activeInputField.caretPosition - 1);
+                string originalword = "";
 
+                foreach (var letter in charList)
+                {
+                    originalword += letter.ToString();
+                }
+                activeInputField.text = originalword;
+                if (activeInputField.caretPosition == activeInputField.text.Length)
+                {
                     activeInputField.ForceLabelUpdate();
+                    return;
                 }
                 else
                 {
-                    Debug.Log("Content to " + contentType);
-                    string t = activeInputField.text.Insert(activeInputField.caretPosition, response.label);
-                    activeInputField.text = t;
-                    selectionPosition++;
-                    activeInputField.caretPosition++;
-
+                    activeInputField.caretPosition--;
                     activeInputField.ForceLabelUpdate();
                 }
-                 
+                SingleCapKey();
+                break;
+            default:
+                if (activeInputField.text.Length >= activeInputField.characterLimit && activeInputField.characterLimit != 0) break;
+                string t = activeInputField.text.Insert(activeInputField.caretPosition, response.label);
+                activeInputField.text = t;
+                selectionPosition++;
+                activeInputField.caretPosition++;
+                activeInputField.ForceLabelUpdate();
+                SingleCapKey();
                 break;
         }
     }
-
+    private void SingleCapKey()
+    {
+        if (isSingleCapKey)
+        {
+            keyboardState = KeyboardState.ONE;
+            SetKeysAndLabels(keyboardState);
+            isSingleCapKey = false;
+        }
+    }
 }
 [System.Serializable]
 public class KeyboardConfiguration
