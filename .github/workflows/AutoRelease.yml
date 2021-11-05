@@ -125,4 +125,9 @@ jobs:
           release-assets: |
             ./artifact/Android/Android.apk
             ./artifact/StandaloneWindows64.zip
-   
+      
+      - name: Discord Notification
+        uses: fateyan/action-discord-notifier@v1
+        with:
+          message-title: New Release available at https://github.com/Studio-23-xyz/Messenger-23/releases
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
