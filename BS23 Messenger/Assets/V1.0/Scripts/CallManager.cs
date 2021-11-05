@@ -27,7 +27,7 @@ public class CallManager : MonoBehaviour
         app.leave();
         isInCall = false;
         MuteCall(false);
-        DisableVideo(false);
+        //DisableVideo(false);
         currentChannelName = "";
     }
 
@@ -48,6 +48,8 @@ public class CallManager : MonoBehaviour
         else
             app.join(channelName, rtcToken, isVideo,uID,videoImage);
         ChatUIManager.instance.StartCallUI(receiverID, isVideo);
+        ChatUIManager.instance.sendMessangeInputField.text = MessengerManager.instance.loggedInUserID  + " Called you";
+        ChatUIManager.instance.OnSendButtonClick();
         isInCall = true;
         InvitePeer(receiverID, channelName);
 

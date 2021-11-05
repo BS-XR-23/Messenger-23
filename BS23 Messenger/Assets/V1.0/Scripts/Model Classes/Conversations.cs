@@ -8,8 +8,7 @@ public class Conversations
 {
     //Data
     public string DateText;
-    public ChatMessage chats;
-    public string Messages;
+   
 
     public void UpdatedDateTime()
     {

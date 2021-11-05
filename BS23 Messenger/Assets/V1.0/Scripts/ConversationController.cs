@@ -16,11 +16,14 @@ public class ConversationController : MonoBehaviour
     public TextMeshProUGUI lastMessage;
     public GameObject onlineIcon;
 
-   
+
+    public TextMeshProUGUI lastDate;
+
     public string recepientID;
 
     [HideInInspector]
     public List<ChatMessage> chats;
+
 
 
 
@@ -39,6 +42,7 @@ public class ConversationController : MonoBehaviour
     private void Awake()
     {
         chats = new List<ChatMessage>();
+       
         if (!mobilePrefab)
         {
             GetComponent<BaseToggleModifier>().OnClick.AddListener(() =>
@@ -89,6 +93,7 @@ public class ConversationController : MonoBehaviour
         profileName.text = recepientID;
         if (chats.Any())
             lastMessage.text = chats.Last()?.text;
+
     }
 
     // Generate Conversation with all the events assigned
@@ -131,6 +136,8 @@ public class ConversationController : MonoBehaviour
             ChatUIManager.instance.AddMessage(msg);
         }
     }
+
+
 
 
     // Send Message to The Receipient

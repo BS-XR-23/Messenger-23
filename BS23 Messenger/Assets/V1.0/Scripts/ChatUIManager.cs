@@ -41,6 +41,10 @@ public class ChatUIManager : MonoBehaviour
     public GameObject selfCameraView;
 
 
+    //Call notifications UI
+    public GameObject RecieveVideoCallNotifications;
+    public GameObject RecieveAudioCallNotifications;
+
     //For Incoming Call UI
     public GameObject incomingCallBase;
     public TextMeshProUGUI callerName;
@@ -164,11 +168,15 @@ public class ChatUIManager : MonoBehaviour
     public void OnAudioCallButtonClicked()
     {
         audioCallButtonEvent.Invoke();
+        RecieveVideoCallNotifications.SetActive(false);
+        RecieveAudioCallNotifications.SetActive(true);
     }
 
     public void OnVideoCallButtonClicked()
     {
         videoCallButtonEvent.Invoke();
+        RecieveAudioCallNotifications.SetActive(false);
+        RecieveVideoCallNotifications.SetActive(true);
     }
 
     public void OnCallEndButtonClicked()
