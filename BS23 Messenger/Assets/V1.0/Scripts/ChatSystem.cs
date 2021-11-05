@@ -107,6 +107,9 @@ public class ChatSystem : MonoBehaviour
     }
 
 
+   
+
+
 
     // This function handles all the peer-to-peer messages coming against your id. Here we sorted it out and added it to our conversation/Create new conversation.
     void OnMessageReceivedFromPeerHandler(int id, string peerId, TextMessage message)
