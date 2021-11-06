@@ -20,31 +20,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Create LFS file list
-        run: git lfs ls-files -l | cut -d' ' -f1 | sort > .lfs-assets-id
-
-      - name: Restore LFS cache
-        uses: actions/cache@v2
-        id: lfs-cache
-        with:
-          path: .git/lfs
-          key: ${{ runner.os }}-lfs-${{ hashFiles('.lfs-assets-id') }}
-
-      - name: Git LFS Pull
-        run: |
-          git lfs pull
-          git add .
-          git reset --hard
-
-      - name: Restore Library cache
-        uses: actions/cache@v2
-        with:
-          path: Library
-          key: Library-build-StandaloneWindows64
-          restore-keys: |
-            Library-build-
-            Library-
-
       - uses: game-ci/unity-builder@v2
         with:
           targetPlatform: StandaloneWindows64
@@ -64,32 +39,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Create LFS file list
-        run: git lfs ls-files -l | cut -d' ' -f1 | sort > .lfs-assets-id
-
-      - name: Restore LFS cache
-        uses: actions/cache@v2
-        id: lfs-cache
-        with:
-          path: .git/lfs
-          key: ${{ runner.os }}-lfs-${{ hashFiles('.lfs-assets-id') }}
-
-      - name: Git LFS Pull
-        run: |
-          git lfs pull
-          git add .
-          git reset --hard
-
-      - name: Restore Library cache
-        uses: actions/cache@v2
-        with:
-          path: Library
-          key: Library-build-Android
-          restore-keys: |
-            Library-build-
-            Library-
-
       - uses: game-ci/unity-builder@v2
+        id: buildStep
         with:
           targetPlatform: Android
           buildMethod: UnityBuilderAction.BuildScript.Build
@@ -117,15 +68,16 @@ jobs:
 
       - name: Display structure of downloaded files
         run: ls -R
-        
-      - name: Release
-        uses: ridedott/release-me-action@master
-        with:
-          release-branches: '["main"]'
-          release-assets: |
-            ./artifact/Android/Android.apk
-            ./artifact/StandaloneWindows64.zip
       
+      - name: GitHub Release Action
+        uses: 1fxe/GitHub-Release-Action@main
+        with:
+          release_token: ${{ secrets.RELEASE_TOKEN }}
+          release_tag: ${{ steps.buildStep.outputs.buildVersion }}
+          release_title: Github-Release-Action ${{ steps.buildStep.outputs.buildVersion }}
+          release_file: ./artifact/Android/Android.apk
+      # ./artifact/StandaloneWindows64.zip
+       
       - name: Discord Notification
         uses: fateyan/action-discord-notifier@v1
         with:
