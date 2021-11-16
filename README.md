@@ -58,3 +58,14 @@ Developer Environment Requirements
 
 - [Shapes2D](https://github.com/all-iver/shapes2d) - Procedural sprites and UI
 - All icons are downloaded from [iconsdb.com](https://www.iconsdb.com/)
+
+
+## <a name="sponsors"></a>Sponsors
+
+The following companies, organizations, and individuals support Messenger-23's ongoing maintenance and development.
+
+<p><a href="https://brainstation-23.com/"><img src="https://brainstation-23.com/wp-content/uploads/2019/02/BS-Logo-Blue_Hr.svg" alt="Automattic" height="undefined"></a></p>
+
+
+
+
